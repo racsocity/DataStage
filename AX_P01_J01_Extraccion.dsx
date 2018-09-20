@@ -1,0 +1,4113 @@
+BEGIN HEADER
+   CharacterSet "CP1252"
+   ExportingTool "IBM InfoSphere DataStage Export"
+   ToolVersion "8"
+   ServerName "RSTADIIS02"
+   ToolInstanceID "SIN_AFR"
+   MDISVersion "1.0"
+   Date "2018-06-08"
+   Time "13.14.38"
+   ServerVersion "9.1"
+END HEADER
+BEGIN DSJOB
+   Identifier "AX_P01_J01_Extraccion"
+   DateModified "2018-06-06"
+   TimeModified "18.42.04"
+   BEGIN DSRECORD
+      Identifier "ROOT"
+      OLEType "CJobDefn"
+      Readonly "0"
+      Name "AX_P01_J01_Extraccion"
+      Description "EXTRACCION DE DDATOS - ACSELX"
+      NextID "14"
+      Container "V0"
+      JobVersion "56.0.0"
+      ControlAfterSubr "0"
+      Parameters "CParameters"
+      BEGIN DSSUBRECORD
+         Name "AX_Parametros"
+         Prompt "AX_Parametros parameters"
+         Default "(As pre-defined)"
+         ParamType "13"
+         ParamLength "0"
+         ParamScale "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "AdvancedRuntimeOptions"
+         Value "#DSProjectARTOptions#"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceMode"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceSeq"
+         Value "1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceRecords"
+         Value "100"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TraceSkip"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "TracePeriod"
+         Value "1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RecordJobPerformanceData"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "IdentList"
+         Value "OC_Ora_SINIESTRO|OC_Ora_LVAL|OC_Ora_SIN_RAMO_CERT|OC_Ora_DET_APROB|OC_Ora_APROB_SIN|OC_Ora_TERCERO|OC_Ora_TASA_CAMBIO"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "ClientCodePage"
+         Value "1252"
+      END DSSUBRECORD
+      NULLIndicatorPosition "0"
+      OrchestrateCode =+=+=+=
+#################################################################
+#### STAGE: OC_Ora_SINIESTRO
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode modified=\\'1\\' type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL modified=\\'1\\' type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT IDESIN,CODSIN,NUMSIN,NUMCERT,STSSIN FROM ACSELX.SINIESTRO]]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[ACSELX.SINIESTRO]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[STSSIN,STSSIN,SINIESTRO]]></Column><Column type=\\'string\\'><![CDATA[NUMCERT,NUMCERT,SINIESTRO]]></Column><Column type=\\'string\\'><![CDATA[NUMSIN,NUMSIN,SINIESTRO]]></Column><Column type=\\'string\\'><![CDATA[CODSIN,CODSIN,SINIESTRO]]></Column><Column type=\\'string\\'><![CDATA[IDESIN,IDESIN,SINIESTRO]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' modified=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={IDESIN=4, CODSIN=12, NUMSIN=4, NUMCERT=4, STSSIN=12}, 
+      DSSQLPrecision={IDESIN=22, CODSIN=6, NUMSIN=22, NUMCERT=22, STSSIN=3}, 
+      DSSchema=\\'record
+         (
+           IDESIN\\:nullable int32\\;
+           CODSIN\\:nullable string\\[max\\=6\\]\\;
+           NUMSIN\\:nullable int32\\;
+           NUMCERT\\:nullable int32\\;
+           STSSIN\\:nullable string\\[max\\=3\\]\\;
+         )\\'
+}'
+   
+
+## General options
+[ident('OC_Ora_SINIESTRO'); jobmon_ident('OC_Ora_SINIESTRO')]
+## Outputs
+0> [modify (
+  IDESIN:nullable int32=IDESIN;
+  CODSIN:nullable string[max=6]=CODSIN;
+  NUMSIN:nullable int32=NUMSIN;
+  NUMCERT:nullable int32=NUMCERT;
+  STSSIN:nullable string[max=3]=STSSIN;
+keep
+  IDESIN,CODSIN,NUMSIN,NUMCERT,
+  STSSIN;
+)] 'OC_Ora_SINIESTRO:Lnk_SINIESTRO.v'
+;
+
+#### STAGE: ds_SINIESTRO.Lnk_SINIESTRO_Part
+## Operator
+hash -key IDESIN
+## General options
+[ident('ds_SINIESTRO.Lnk_SINIESTRO_Part')]
+## Inputs
+0< [] 'OC_Ora_SINIESTRO:Lnk_SINIESTRO.v'
+## Outputs
+0> [] 'OC_Ora_SINIESTRO:Lnk_SINIESTRO_Part.v'
+;
+
+#### STAGE: ds_SINIESTRO.Lnk_SINIESTRO_Sort
+## Operator
+tsort -key IDESIN -asc -nulls first -nonStable
+## General options
+[ident('ds_SINIESTRO.Lnk_SINIESTRO_Sort')]
+## Inputs
+0< [] 'OC_Ora_SINIESTRO:Lnk_SINIESTRO_Part.v'
+## Outputs
+0> [] 'OC_Ora_SINIESTRO:Lnk_SINIESTRO_Part_Sort.v'
+;
+
+#################################################################
+#### STAGE: ds_SINIESTRO
+## Operator
+copy
+## General options
+[ident('ds_SINIESTRO')]
+## Inputs
+0< [] 'OC_Ora_SINIESTRO:Lnk_SINIESTRO_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axSiniestro.ds'
+;
+
+#### STAGE: ds_LVAL.Lnk_LVAL_Part
+## Operator
+hash -key CODLVAL -cs
+## General options
+[ident('ds_LVAL.Lnk_LVAL_Part')]
+## Inputs
+0< [] 'OC_Ora_LVAL:Lnk_LVAL.v'
+## Outputs
+0> [] 'OC_Ora_LVAL:Lnk_LVAL_Part.v'
+;
+
+#### STAGE: ds_LVAL.Lnk_LVAL_Sort
+## Operator
+tsort -key CODLVAL -cs -asc -nulls first -nonStable
+## General options
+[ident('ds_LVAL.Lnk_LVAL_Sort')]
+## Inputs
+0< [] 'OC_Ora_LVAL:Lnk_LVAL_Part.v'
+## Outputs
+0> [] 'OC_Ora_LVAL:Lnk_LVAL_Part_Sort.v'
+;
+
+#################################################################
+#### STAGE: ds_LVAL
+## Operator
+copy
+## General options
+[ident('ds_LVAL')]
+## Inputs
+0< [] 'OC_Ora_LVAL:Lnk_LVAL_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axLval.ds'
+;
+
+#################################################################
+#### STAGE: OC_Ora_LVAL
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT TIPOLVAL, CODLVAL , DESCRIP FROM ACSELX.LVAL]]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[ACSELX.LVAL]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[DESCRIP,DESCRIP,LVAL]]></Column><Column type=\\'string\\'><![CDATA[CODLVAL,CODLVAL,LVAL]]></Column><Column type=\\'string\\'><![CDATA[TIPOLVAL,TIPOLVAL,LVAL]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={TIPOLVAL=12, CODLVAL=12, DESCRIP=12}, 
+      DSSQLPrecision={TIPOLVAL=8, CODLVAL=20, DESCRIP=150}, 
+      DSSchema=\\'record
+         (
+           TIPOLVAL\\:nullable string\\[max\\=8\\]\\;
+           CODLVAL\\:nullable string\\[max\\=20\\]\\;
+           DESCRIP\\:nullable string\\[max\\=150\\]\\;
+         )\\'
+}'
+   
+
+## General options
+[ident('OC_Ora_LVAL'); jobmon_ident('OC_Ora_LVAL')]
+## Outputs
+0> [modify (
+  TIPOLVAL:nullable string[max=8]=TIPOLVAL;
+  CODLVAL:nullable string[max=20]=CODLVAL;
+  DESCRIP:nullable string[max=150]=DESCRIP;
+keep
+  TIPOLVAL,CODLVAL,DESCRIP;
+)] 'OC_Ora_LVAL:Lnk_LVAL.v'
+;
+
+#### STAGE: ds_SIN_RAMO_CERT.Lnk_SIN_RAMO_CERT_Part
+## Operator
+hash -key IDESIN
+## General options
+[ident('ds_SIN_RAMO_CERT.Lnk_SIN_RAMO_CERT_Part')]
+## Inputs
+0< [] 'OC_Ora_SIN_RAMO_CERT:Lnk_SIN_RAMO_CERT.v'
+## Outputs
+0> [] 'OC_Ora_SIN_RAMO_CERT:Lnk_SIN_RAMO_CERT_Part.v'
+;
+
+#### STAGE: ds_SIN_RAMO_CERT.Lnk_SIN_RAMO_CERT_Sort
+## Operator
+tsort -key IDESIN -asc -nulls first -key CODRAMOCERT -cs -asc -nulls first -nonStable
+## General options
+[ident('ds_SIN_RAMO_CERT.Lnk_SIN_RAMO_CERT_Sort')]
+## Inputs
+0< [] 'OC_Ora_SIN_RAMO_CERT:Lnk_SIN_RAMO_CERT_Part.v'
+## Outputs
+0> [] 'OC_Ora_SIN_RAMO_CERT:Lnk_SIN_RAMO_CERT_Part_Sort.v'
+;
+
+#################################################################
+#### STAGE: ds_SIN_RAMO_CERT
+## Operator
+copy
+## General options
+[ident('ds_SIN_RAMO_CERT')]
+## Inputs
+0< [] 'OC_Ora_SIN_RAMO_CERT:Lnk_SIN_RAMO_CERT_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axSinRamoCert.ds'
+;
+
+#################################################################
+#### STAGE: OC_Ora_SIN_RAMO_CERT
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT MTOTOTRESRAMOLOCAL,IDESIN,CODRAMOCERT,STSSINRAMOCERT FROM ACSELX.SIN_RAMO_CERT]]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[ACSELX.SIN_RAMO_CERT]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[STSSINRAMOCERT,STSSINRAMOCERT,SIN_RAMO_CERT]]></Column><Column type=\\'string\\'><![CDATA[CODRAMOCERT,CODRAMOCERT,SIN_RAMO_CERT]]></Column><Column type=\\'string\\'><![CDATA[IDESIN,IDESIN,SIN_RAMO_CERT]]></Column><Column type=\\'string\\'><![CDATA[MTOTOTRESRAMOLOCAL,MTOTOTRESRAMOLOCAL,SIN_RAMO_CERT]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={IDESIN=4, MTOTOTRESRAMOLOCAL=3, CODRAMOCERT=12, STSSINRAMOCERT=12}, 
+      DSSQLPrecision={IDESIN=22, MTOTOTRESRAMOLOCAL=22, CODRAMOCERT=4, STSSINRAMOCERT=3}, 
+      DSSQLScale={MTOTOTRESRAMOLOCAL=2}, 
+      DSSchema=\\'record
+         (
+           IDESIN\\:nullable int32\\;
+           MTOTOTRESRAMOLOCAL\\:nullable decimal\\[22\\,2\\]\\;
+           CODRAMOCERT\\:nullable string\\[max\\=4\\]\\;
+           STSSINRAMOCERT\\:nullable string\\[max\\=3\\]\\;
+         )\\'
+}'
+   
+
+## General options
+[ident('OC_Ora_SIN_RAMO_CERT'); jobmon_ident('OC_Ora_SIN_RAMO_CERT')]
+## Outputs
+0> [modify (
+  IDESIN:nullable int32=IDESIN;
+  MTOTOTRESRAMOLOCAL:nullable decimal[22,2]=MTOTOTRESRAMOLOCAL;
+  CODRAMOCERT:nullable string[max=4]=CODRAMOCERT;
+  STSSINRAMOCERT:nullable string[max=3]=STSSINRAMOCERT;
+keep
+  IDESIN,MTOTOTRESRAMOLOCAL,CODRAMOCERT,STSSINRAMOCERT;
+)] 'OC_Ora_SIN_RAMO_CERT:Lnk_SIN_RAMO_CERT.v'
+;
+
+#### STAGE: ds_DET_APROB.Lnk_DET_APROB_Part
+## Operator
+hash -key IDESIN
+## General options
+[ident('ds_DET_APROB.Lnk_DET_APROB_Part')]
+## Inputs
+0< [] 'OC_Ora_DET_APROB:Lnk_DET_APROB.v'
+## Outputs
+0> [] 'OC_Ora_DET_APROB:Lnk_DET_APROB_Part.v'
+;
+
+#### STAGE: ds_DET_APROB.Lnk_DET_APROB_Sort
+## Operator
+tsort -key IDESIN -asc -nulls first -key NUMAPROB -asc -nulls first -nonStable
+## General options
+[ident('ds_DET_APROB.Lnk_DET_APROB_Sort')]
+## Inputs
+0< [] 'OC_Ora_DET_APROB:Lnk_DET_APROB_Part.v'
+## Outputs
+0> [] 'OC_Ora_DET_APROB:Lnk_DET_APROB_Part_Sort.v'
+;
+
+#################################################################
+#### STAGE: ds_DET_APROB
+## Operator
+copy
+## General options
+[ident('ds_DET_APROB')]
+## Inputs
+0< [] 'OC_Ora_DET_APROB:Lnk_DET_APROB_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axDetAprob.ds'
+;
+
+#################################################################
+#### STAGE: OC_Ora_DET_APROB
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT MTOAPROB,IDESIN,NUMAPROB FROM ACSELX.DET_APROB]]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[ACSELX.DET_APROB]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[NUMAPROB,NUMAPROB,DET_APROB]]></Column><Column type=\\'string\\'><![CDATA[IDESIN,IDESIN,DET_APROB]]></Column><Column type=\\'string\\'><![CDATA[MTOAPROB,MTOAPROB,DET_APROB]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={IDESIN=4, MTOAPROB=3, NUMAPROB=4}, 
+      DSSQLPrecision={IDESIN=22, MTOAPROB=22, NUMAPROB=22}, 
+      DSSQLScale={MTOAPROB=2}, 
+      DSSchema=\\'record
+         (
+           IDESIN\\:nullable int32\\;
+           MTOAPROB\\:nullable decimal\\[22\\,2\\]\\;
+           NUMAPROB\\:nullable int32\\;
+         )\\'
+}'
+   
+
+## General options
+[ident('OC_Ora_DET_APROB'); jobmon_ident('OC_Ora_DET_APROB')]
+## Outputs
+0> [modify (
+  IDESIN:nullable int32=IDESIN;
+  MTOAPROB:nullable decimal[22,2]=MTOAPROB;
+  NUMAPROB:nullable int32=NUMAPROB;
+keep
+  IDESIN,MTOAPROB,NUMAPROB;
+)] 'OC_Ora_DET_APROB:Lnk_DET_APROB.v'
+;
+
+#### STAGE: ds_APROB_SIN.Lnk_APROB_SIN_Part
+## Operator
+hash -key IDESIN
+## General options
+[ident('ds_APROB_SIN.Lnk_APROB_SIN_Part')]
+## Inputs
+0< [] 'OC_Ora_APROB_SIN:Lnk_APROB_SIN.v'
+## Outputs
+0> [] 'OC_Ora_APROB_SIN:Lnk_APROB_SIN_Part.v'
+;
+
+#### STAGE: ds_APROB_SIN.Lnk_APROB_SIN_Sort
+## Operator
+tsort -key IDESIN -asc -nulls first -nonStable
+## General options
+[ident('ds_APROB_SIN.Lnk_APROB_SIN_Sort')]
+## Inputs
+0< [] 'OC_Ora_APROB_SIN:Lnk_APROB_SIN_Part.v'
+## Outputs
+0> [] 'OC_Ora_APROB_SIN:Lnk_APROB_SIN_Part_Sort.v'
+;
+
+#################################################################
+#### STAGE: ds_APROB_SIN
+## Operator
+copy
+## General options
+[ident('ds_APROB_SIN')]
+## Inputs
+0< [] 'OC_Ora_APROB_SIN:Lnk_APROB_SIN_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axAprobSin.ds'
+;
+
+#################################################################
+#### STAGE: OC_Ora_APROB_SIN
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT IDESIN,TIPOAPROB,CODMONEDA,NUMOBLIG,FECSTS,CODRAMOCERT,NUMID,STSAPROB,NUMAPROB,TIPOBENEF FROM ACSELX.APROB_SIN]]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[ACSELX.APROB_SIN]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[TIPOBENEF,TIPOBENEF,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[NUMAPROB,NUMAPROB,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[STSAPROB,STSAPROB,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[NUMID,NUMID,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[CODRAMOCERT,CODRAMOCERT,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[FECSTS,FECSTS,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[NUMOBLIG,NUMOBLIG,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[CODMONEDA,CODMONEDA,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[TIPOAPROB,TIPOAPROB,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[IDESIN,IDESIN,APROB_SIN]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={IDESIN=4, TIPOAPROB=12, CODMONEDA=12, NUMOBLIG=4, FECSTS=9, CODRAMOCERT=12, NUMID=4, STSAPROB=12, NUMAPROB=4, TIPOBENEF=12}, 
+      DSSQLPrecision={IDESIN=22, TIPOAPROB=1, CODMONEDA=3, NUMOBLIG=22, CODRAMOCERT=4, NUMID=22, STSAPROB=3, NUMAPROB=22, TIPOBENEF=4}, 
+      DSSchema=\\'record
+         (
+           IDESIN\\:nullable int32\\;
+           TIPOAPROB\\:nullable string\\[max\\=1\\]\\;
+           CODMONEDA\\:nullable string\\[max\\=3\\]\\;
+           NUMOBLIG\\:nullable int32\\;
+           FECSTS\\:nullable date\\;
+           CODRAMOCERT\\:nullable string\\[max\\=4\\]\\;
+           NUMID\\:nullable int32\\;
+           STSAPROB\\:nullable string\\[max\\=3\\]\\;
+           NUMAPROB\\:nullable int32\\;
+           TIPOBENEF\\:nullable string\\[max\\=4\\]\\;
+         )\\'
+}'
+   
+
+## General options
+[ident('OC_Ora_APROB_SIN'); jobmon_ident('OC_Ora_APROB_SIN')]
+## Outputs
+0> [modify (
+  IDESIN:nullable int32=IDESIN;
+  TIPOAPROB:nullable string[max=1]=TIPOAPROB;
+  CODMONEDA:nullable string[max=3]=CODMONEDA;
+  NUMOBLIG:nullable int32=NUMOBLIG;
+  FECSTS:nullable date=FECSTS;
+  CODRAMOCERT:nullable string[max=4]=CODRAMOCERT;
+  NUMID:nullable int32=NUMID;
+  STSAPROB:nullable string[max=3]=STSAPROB;
+  NUMAPROB:nullable int32=NUMAPROB;
+  TIPOBENEF:nullable string[max=4]=TIPOBENEF;
+keep
+  IDESIN,TIPOAPROB,CODMONEDA,NUMOBLIG,
+  FECSTS,CODRAMOCERT,NUMID,STSAPROB,
+  NUMAPROB,TIPOBENEF;
+)] 'OC_Ora_APROB_SIN:Lnk_APROB_SIN.v'
+;
+
+#################################################################
+#### STAGE: OC_Ora_TERCERO
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT NUMID,NOMTER,APETER,APEMATTER FROM ACSELX.TERCERO]]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[ACSELX.TERCERO]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[APEMATTER,APEMATTER,TERCERO]]></Column><Column type=\\'string\\'><![CDATA[APETER,APETER,TERCERO]]></Column><Column type=\\'string\\'><![CDATA[NOMTER,NOMTER,TERCERO]]></Column><Column type=\\'string\\'><![CDATA[NUMID,NUMID,TERCERO]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' modified=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={NUMID=4, NOMTER=12, APETER=12, APEMATTER=12}, 
+      DSSQLPrecision={NUMID=22, NOMTER=110, APETER=110, APEMATTER=110}, 
+      DSSchema=\\'record
+         (
+           NUMID\\:nullable int32\\;
+           NOMTER\\:nullable string\\[max\\=110\\]\\;
+           APETER\\:nullable string\\[max\\=110\\]\\;
+           APEMATTER\\:nullable string\\[max\\=110\\]\\;
+         )\\'
+}'
+   
+
+## General options
+[ident('OC_Ora_TERCERO'); jobmon_ident('OC_Ora_TERCERO')]
+## Outputs
+0> [modify (
+  NUMID:nullable int32=NUMID;
+  NOMTER:nullable string[max=110]=NOMTER;
+  APETER:nullable string[max=110]=APETER;
+  APEMATTER:nullable string[max=110]=APEMATTER;
+keep
+  NUMID,NOMTER,APETER,APEMATTER;
+)] 'OC_Ora_TERCERO:Lnk_TERCERO.v'
+;
+
+#### STAGE: ds_TERCERO.Lnk_TERCERO_Part
+## Operator
+hash -key NUMID
+## General options
+[ident('ds_TERCERO.Lnk_TERCERO_Part')]
+## Inputs
+0< [] 'OC_Ora_TERCERO:Lnk_TERCERO.v'
+## Outputs
+0> [] 'OC_Ora_TERCERO:Lnk_TERCERO_Part.v'
+;
+
+#### STAGE: ds_TERCERO.Lnk_TERCERO_Sort
+## Operator
+tsort -key NUMID -asc -nulls first -nonStable
+## General options
+[ident('ds_TERCERO.Lnk_TERCERO_Sort')]
+## Inputs
+0< [] 'OC_Ora_TERCERO:Lnk_TERCERO_Part.v'
+## Outputs
+0> [] 'OC_Ora_TERCERO:Lnk_TERCERO_Part_Sort.v'
+;
+
+#################################################################
+#### STAGE: ds_TERCERO
+## Operator
+copy
+## General options
+[ident('ds_TERCERO')]
+## Inputs
+0< [] 'OC_Ora_TERCERO:Lnk_TERCERO_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axTercero.ds'
+;
+
+#### STAGE: ds_TASA_CAMBIO.Lnk_TASA_CAMBIO_Part
+## Operator
+hash -key FECHORACAMBIO
+## General options
+[ident('ds_TASA_CAMBIO.Lnk_TASA_CAMBIO_Part')]
+## Inputs
+0< [] 'OC_Ora_TASA_CAMBIO:Lnk_TASA_CAMBIO.v'
+## Outputs
+0> [] 'OC_Ora_TASA_CAMBIO:Lnk_TASA_CAMBIO_Part.v'
+;
+
+#### STAGE: ds_TASA_CAMBIO.Lnk_TASA_CAMBIO_Sort
+## Operator
+tsort -key FECHORACAMBIO -asc -nulls first -nonStable
+## General options
+[ident('ds_TASA_CAMBIO.Lnk_TASA_CAMBIO_Sort')]
+## Inputs
+0< [] 'OC_Ora_TASA_CAMBIO:Lnk_TASA_CAMBIO_Part.v'
+## Outputs
+0> [] 'OC_Ora_TASA_CAMBIO:Lnk_TASA_CAMBIO_Part_Sort.v'
+;
+
+#################################################################
+#### STAGE: ds_TASA_CAMBIO
+## Operator
+copy
+## General options
+[ident('ds_TASA_CAMBIO')]
+## Inputs
+0< [] 'OC_Ora_TASA_CAMBIO:Lnk_TASA_CAMBIO_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axTasaCambio.ds'
+;
+
+#################################################################
+#### STAGE: OC_Ora_TASA_CAMBIO
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT TASACAMBIO * 1, FECHORACAMBIO FROM TASA_CAMBIO WHERE TIPOTASA = \\'D\\'  AND CODMONEDAFIN = \\'SOL\\'  AND CODMONEDA = \\'USD\\']]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[TASA_CAMBIO]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[FECHORACAMBIO,FECHORACAMBIO,TASA_CAMBIO]]></Column><Column type=\\'string\\'><![CDATA[defaulted_alias1,TASACAMBIO,TASA_CAMBIO]]></Column></Columns><WhereClause type=\\'string\\'><![CDATA[(TIPOTASA = \\'D\\' AND CODMONEDAFIN = \\'SOL\\' AND CODMONEDA = \\'USD\\')]]></WhereClause></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' modified=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={TASACAMBIO=3, FECHORACAMBIO=9}, 
+      DSSQLPrecision={TASACAMBIO=22}, 
+      DSSQLScale={TASACAMBIO=6}, 
+      DSSchema=\\'record
+         (
+           TASACAMBIO\\:nullable decimal\\[22\\,6\\]\\;
+           FECHORACAMBIO\\:nullable date\\;
+         )\\'
+}'
+   
+
+## General options
+[ident('OC_Ora_TASA_CAMBIO'); jobmon_ident('OC_Ora_TASA_CAMBIO')]
+## Outputs
+0> [modify (
+  TASACAMBIO:nullable decimal[22,6]=TASACAMBIO;
+  FECHORACAMBIO:nullable date=FECHORACAMBIO;
+keep
+  TASACAMBIO,FECHORACAMBIO;
+)] 'OC_Ora_TASA_CAMBIO:Lnk_TASA_CAMBIO.v'
+;
+
+
+=+=+=+=
+      IsTemplate "0"
+      NLSLocale ",,,,"
+      JobType "3"
+      Category "\\Jobs\\AX_P01_Extraccion"
+      CenturyBreakYear "30"
+      NextAliasID "2"
+      ParameterFileDDName "DD00001"
+      ReservedWordCheck "1"
+      TransactionSize "0"
+      ValidationStatus "0"
+      Uploadable "0"
+      PgmCustomizationFlag "0"
+      JobReportFlag "0"
+      AllowMultipleInvocations "0"
+      Act2ActOverideDefaults "0"
+      Act2ActEnableRowBuffer "0"
+      Act2ActUseIPC "0"
+      Act2ActBufferSize "0"
+      Act2ActIPCTimeout "0"
+      ExpressionSemanticCheckFlag "0"
+      TraceOption "0"
+      EnableCacheSharing "0"
+      RuntimeColumnPropagation "1"
+      RelStagesInJobStatus "-1"
+      WebServiceEnabled "0"
+      MFProcessMetaData "0"
+      MFProcessMetaDataXMLFileExchangeMethod "0"
+      IMSProgType "0"
+      CopyLibPrefix "ARDT"
+      RecordPerformanceResults "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0"
+      OLEType "CContainerView"
+      Readonly "0"
+      Name "Job"
+      NextID "1"
+      IsTopLevel "0"
+      StageList "V0S0|V0S5|V1S0|V1S1|V3S0|V3S1|V4S0|V4S1|V5S0|V5S1|V0A6|V6S0|V6S1|V0A7|V7A0|V8A0|V9A0|V11A0|V12A0|V13A0|V13S1|V13S2"
+      StageXPos "72|408|408|72|408|72|408|72|408|72|500|72|408|9|499|502|502|497|499|497|408|72"
+      StageYPos "96|96|312|312|384|384|240|240|168|168|88|456|456|7|160|235|310|382|452|529|528|528"
+      StageTypes "CCustomStage.CC_GUI|CCustomStage|CCustomStage|CCustomStage.CC_GUI|CCustomStage|CCustomStage.CC_GUI|CCustomStage|CCustomStage.CC_GUI|CCustomStage|CCustomStage.CC_GUI|ID_PALETTEANNOTATION|CCustomStage.CC_GUI|CCustomStage|ID_PALETTEJOBANNOTATION|ID_PALETTEANNOTATION|ID_PALETTEANNOTATION|ID_PALETTEANNOTATION|ID_PALETTEANNOTATION|ID_PALETTEANNOTATION|ID_PALETTEANNOTATION|CCustomStage|CCustomStage.CC_GUI"
+      NextStageID "8"
+      SnapToGrid "1"
+      GridLines "0"
+      ZoomValue "80"
+      StageXSize "48|48|48|48|48|48|48|48|48|48|114|48|48|507|114|143|114|153|114|114|48|48"
+      StageYSize "48|48|48|48|48|48|48|48|48|48|55|48|48|73|55|55|55|55|55|55|48|48"
+      ContainerViewSizing "0000 0000 0661 0373 0000 0001 0000 0000"
+      StageNames "OC_Ora_SINIESTRO|ds_SINIESTRO|ds_LVAL|OC_Ora_LVAL|ds_SIN_RAMO_CERT|OC_Ora_SIN_RAMO_CERT|ds_DET_APROB|OC_Ora_DET_APROB|ds_APROB_SIN|OC_Ora_APROB_SIN| |OC_Ora_TERCERO|ds_TERCERO| | | | | | | |ds_TASA_CAMBIO|OC_Ora_TASA_CAMBIO"
+      StageTypeIDs "OracleConnectorPX|PxDataSet|PxDataSet|OracleConnectorPX|PxDataSet|OracleConnectorPX|PxDataSet|OracleConnectorPX|PxDataSet|OracleConnectorPX| |OracleConnectorPX|PxDataSet| | | | | | | |PxDataSet|OracleConnectorPX"
+      LinkNames "Lnk_SINIESTRO| | |Lnk_LVAL| |Lnk_SIN_RAMO_CERT| |Lnk_DET_APROB| |Lnk_APROB_SIN| |Lnk_TERCERO| | | | | | | | | |Lnk_TASA_CAMBIO"
+      LinkHasMetaDatas "True| | |True| |True| |True| |True| |True| | | | | | | | | |True"
+      LinkTypes "1| | |1| |1| |1| |1| |1| | | | | | | | | |1"
+      LinkNamePositionXs "261| | |264| |194| |178| |264| |189| | | | | | | | | |261"
+      LinkNamePositionYs "117| | |336| |408| |265| |192| |478| | | | | | | | | |552"
+      TargetStageIDs "V0S5| | |V1S0| |V3S0| |V4S0| |V5S0| |V6S1| | | | | | | | | |V13S1"
+      SourceStageEffectiveExecutionModes "2| | |2| |2| |2| |2| |2| | | | | | | | | |2"
+      SourceStageRuntimeExecutionModes "2| | |2| |2| |2| |2| |2| | | | | | | | | |2"
+      TargetStageEffectiveExecutionModes "2| | |2| |2| |2| |2| |2| | | | | | | | | |2"
+      TargetStageRuntimeExecutionModes "2| | |2| |2| |2| |2| |2| | | | | | | | | |2"
+      LinkIsSingleOperatorLookup "False| | |False| |False| |False| |False| |False| | | | | | | | | |False"
+      LinkIsSortSequential "False| | |False| |False| |False| |False| |False| | | | | | | | | |False"
+      LinkSortMode "1| | |1| |1| |1| |1| |1| | | | | | | | | |1"
+      LinkPartColMode "3| | |3| |3| |3| |3| |3| | | | | | | | | |3"
+      LinkSourcePinIDs "V0S0P1| | |V1S1P1| |V3S1P1| |V4S1P1| |V5S1P1| |V6S0P1| | | | | | | | | |V13S2P1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0A6"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V0A6"
+      NextID "0"
+      AnnotationType "0"
+      AnnotationText =+=+=+=
+Hash - Sort - IDSIN
+axSiniestro.ds
+=+=+=+=
+      TextFont "MS Shell Dlg\\10\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "0"
+      TextVerticalJustification "1"
+      TextColor "0"
+      BackgroundColor "8454016"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0A7"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V0A7"
+      NextID "0"
+      AnnotationType "1"
+      TextFont "MS Shell Dlg\\10\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "1"
+      TextVerticalJustification "1"
+      TextColor "0"
+      BackgroundColor "12713983"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S0"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "OC_Ora_SINIESTRO"
+      NextID "2"
+      OutputPins "V0S0P1"
+      StageType "OracleConnectorPX"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariants"
+         Value "V1;10:\"10g\":ccora10g;11:\"11g\":ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsLibraries"
+         Value "ccora10g,ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsVersions"
+         Value "1.0,1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Orientation"
+         Value "link"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Engine"
+         Value "EE"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Context"
+         Value "source"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectionString"
+         Value "/Connection/Server"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Username"
+         Value "/Connection/Username"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Password"
+         Value "/Connection/Password"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "xaoDbName"
+         Value "/Connection/xaoDbName"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OSLevelAuthentication"
+         Value "/Connection/OSLevelAuthentication"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLProperties"
+         Value "<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode modified='1' type='int'><![CDATA[0]]></ReadMode><GenerateSQL modified='1' type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT IDESIN,CODSIN,NUMSIN,NUMCERT,STSSIN FROM ACSELX.SINIESTRO]]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[ACSELX.SINIESTRO]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[STSSIN,STSSIN,SINIESTRO]]></Column><Column type='string'><![CDATA[NUMCERT,NUMCERT,SINIESTRO]]></Column><Column type='string'><![CDATA[NUMSIN,NUMSIN,SINIESTRO]]></Column><Column type='string'><![CDATA[CODSIN,CODSIN,SINIESTRO]]></Column><Column type='string'><![CDATA[IDESIN,IDESIN,SINIESTRO]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed='1' modified='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Execmode"
+         Value "par"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S0P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "Lnk_SINIESTRO"
+      Partner "V0S5|V0S5P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "lookup\\type"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "IDESIN"
+         SqlType "4"
+         Precision "22"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CODSIN"
+         SqlType "12"
+         Precision "6"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "NUMSIN"
+         SqlType "4"
+         Precision "22"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "NUMCERT"
+         SqlType "4"
+         Precision "22"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "STSSIN"
+         SqlType "12"
+         Precision "3"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "261"
+      TopTextPos "117"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S5"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "ds_SINIESTRO"
+      NextID "2"
+      InputPins "V0S5P1"
+      StageType "PxDataSet"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V0S5P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "Lnk_SINIESTRO"
+      Partner "V0S0|V0S0P1"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "dataset"
+         Value "#AX_Parametros.pRuta#axSiniestro.ds"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "datasetmode"
+         Value ">| [ds"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Part/Col"
+         Value "hash -key IDESIN"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Sort"
+         Value "tsort -key IDESIN -asc -nulls first"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SortAdv"
+         Value "-nonStable"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "_PartColSortColumns"
+         Value "IDESIN"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V11A0"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V11A0"
+      NextID "0"
+      AnnotationType "0"
+      AnnotationText =+=+=+=
+Hash - IDSIN
+Sort - IDSIN, CODRAMOCERT
+axSinRamoCert.ds
+=+=+=+=
+      TextFont "MS Shell Dlg\\10\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "0"
+      TextVerticalJustification "1"
+      TextColor "0"
+      BackgroundColor "8454016"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V12A0"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V12A0"
+      NextID "0"
+      AnnotationType "0"
+      AnnotationText =+=+=+=
+Hash - Sort - NUMID
+axTercero.ds
+=+=+=+=
+      TextFont "MS Shell Dlg\\10\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "0"
+      TextVerticalJustification "1"
+      TextColor "0"
+      BackgroundColor "8454016"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V13A0"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V13A0"
+      NextID "0"
+      AnnotationType "0"
+      AnnotationText =+=+=+=
+Hash - Sort - FECHORACAMBIO
+axTasaCambio.ds
+=+=+=+=
+      TextFont "MS Shell Dlg\\10\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "0"
+      TextVerticalJustification "1"
+      TextColor "0"
+      BackgroundColor "8454016"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V13S1"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "ds_TASA_CAMBIO"
+      NextID "2"
+      InputPins "V13S1P1"
+      StageType "PxDataSet"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V13S1P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "Lnk_TASA_CAMBIO"
+      Description "#psValores.pRuta#axTercero.ds"
+      Partner "V13S2|V13S2P1"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "dataset"
+         Value "#AX_Parametros.pRuta#axTasaCambio.ds"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "datasetmode"
+         Value ">| [ds"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Part/Col"
+         Value "hash -key FECHORACAMBIO"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Sort"
+         Value "tsort -key FECHORACAMBIO -asc -nulls first"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SortAdv"
+         Value "-nonStable"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "_PartColSortColumns"
+         Value "FECHORACAMBIO"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SeqSort"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V13S2"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "OC_Ora_TASA_CAMBIO"
+      NextID "2"
+      OutputPins "V13S2P1"
+      StageType "OracleConnectorPX"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariants"
+         Value "V1;10:\"10g\":ccora10g;11:\"11g\":ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsLibraries"
+         Value "ccora10g,ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsVersions"
+         Value "1.0,1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Orientation"
+         Value "link"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Engine"
+         Value "EE"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Context"
+         Value "source"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectionString"
+         Value "/Connection/Server"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Username"
+         Value "/Connection/Username"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Password"
+         Value "/Connection/Password"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "xaoDbName"
+         Value "/Connection/xaoDbName"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OSLevelAuthentication"
+         Value "/Connection/OSLevelAuthentication"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLProperties"
+         Value "<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type='int'><![CDATA[0]]></ReadMode><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT TASACAMBIO * 1, FECHORACAMBIO FROM TASA_CAMBIO WHERE TIPOTASA = 'D'  AND CODMONEDAFIN = 'SOL'  AND CODMONEDA = 'USD']]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[TASA_CAMBIO]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[FECHORACAMBIO,FECHORACAMBIO,TASA_CAMBIO]]></Column><Column type='string'><![CDATA[defaulted_alias1,TASACAMBIO,TASA_CAMBIO]]></Column></Columns><WhereClause type='string'><![CDATA[(TIPOTASA = 'D' AND CODMONEDAFIN = 'SOL' AND CODMONEDA = 'USD')]]></WhereClause></SelectStatement></SQL><EnablePartitionedReads collapsed='1' modified='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V13S2P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "Lnk_TASA_CAMBIO"
+      Partner "V13S1|V13S1P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "lookup\\type"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "TASACAMBIO"
+         SqlType "3"
+         Precision "22"
+         Scale "6"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "FECHORACAMBIO"
+         SqlType "9"
+         Precision "0"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "261"
+      TopTextPos "552"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V1S0"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "ds_LVAL"
+      NextID "2"
+      InputPins "V1S0P1"
+      StageType "PxDataSet"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V1S0P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "Lnk_LVAL"
+      Partner "V1S1|V1S1P1"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "dataset"
+         Value "#AX_Parametros.pRuta#axLval.ds"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "datasetmode"
+         Value ">| [ds"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Part/Col"
+         Value "hash -key CODLVAL -cs"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Sort"
+         Value "tsort -key CODLVAL -cs -asc -nulls first"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SortAdv"
+         Value "-nonStable"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "_PartColSortColumns"
+         Value "CODLVAL"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V1S1"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "OC_Ora_LVAL"
+      NextID "2"
+      OutputPins "V1S1P1"
+      StageType "OracleConnectorPX"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariants"
+         Value "V1;10:\"10g\":ccora10g;11:\"11g\":ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsLibraries"
+         Value "ccora10g,ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsVersions"
+         Value "1.0,1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Orientation"
+         Value "link"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Engine"
+         Value "EE"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Context"
+         Value "source"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectionString"
+         Value "/Connection/Server"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Username"
+         Value "/Connection/Username"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Password"
+         Value "/Connection/Password"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "xaoDbName"
+         Value "/Connection/xaoDbName"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OSLevelAuthentication"
+         Value "/Connection/OSLevelAuthentication"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLProperties"
+         Value "<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type='int'><![CDATA[0]]></ReadMode><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT TIPOLVAL, CODLVAL , DESCRIP FROM ACSELX.LVAL]]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[ACSELX.LVAL]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[DESCRIP,DESCRIP,LVAL]]></Column><Column type='string'><![CDATA[CODLVAL,CODLVAL,LVAL]]></Column><Column type='string'><![CDATA[TIPOLVAL,TIPOLVAL,LVAL]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V1S1P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "Lnk_LVAL"
+      Partner "V1S0|V1S0P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "lookup\\type"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "TIPOLVAL"
+         SqlType "12"
+         Precision "8"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CODLVAL"
+         SqlType "12"
+         Precision "20"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "DESCRIP"
+         SqlType "12"
+         Precision "150"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "264"
+      TopTextPos "336"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V3S0"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "ds_SIN_RAMO_CERT"
+      NextID "2"
+      InputPins "V3S0P1"
+      StageType "PxDataSet"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V3S0P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "Lnk_SIN_RAMO_CERT"
+      Partner "V3S1|V3S1P1"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "dataset"
+         Value "#AX_Parametros.pRuta#axSinRamoCert.ds"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "datasetmode"
+         Value ">| [ds"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Part/Col"
+         Value "hash -key IDESIN"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Sort"
+         Value "tsort -key IDESIN -asc -nulls first -key CODRAMOCERT -cs -asc -nulls first"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SortAdv"
+         Value "-nonStable"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "_PartColSortColumns"
+         Value "IDESIN,CODRAMOCERT"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V3S1"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "OC_Ora_SIN_RAMO_CERT"
+      NextID "2"
+      OutputPins "V3S1P1"
+      StageType "OracleConnectorPX"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariants"
+         Value "V1;10:\"10g\":ccora10g;11:\"11g\":ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsLibraries"
+         Value "ccora10g,ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsVersions"
+         Value "1.0,1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Orientation"
+         Value "link"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Engine"
+         Value "EE"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Context"
+         Value "source"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectionString"
+         Value "/Connection/Server"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Username"
+         Value "/Connection/Username"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Password"
+         Value "/Connection/Password"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "xaoDbName"
+         Value "/Connection/xaoDbName"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OSLevelAuthentication"
+         Value "/Connection/OSLevelAuthentication"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLProperties"
+         Value "<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type='int'><![CDATA[0]]></ReadMode><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT MTOTOTRESRAMOLOCAL,IDESIN,CODRAMOCERT,STSSINRAMOCERT FROM ACSELX.SIN_RAMO_CERT]]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[ACSELX.SIN_RAMO_CERT]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[STSSINRAMOCERT,STSSINRAMOCERT,SIN_RAMO_CERT]]></Column><Column type='string'><![CDATA[CODRAMOCERT,CODRAMOCERT,SIN_RAMO_CERT]]></Column><Column type='string'><![CDATA[IDESIN,IDESIN,SIN_RAMO_CERT]]></Column><Column type='string'><![CDATA[MTOTOTRESRAMOLOCAL,MTOTOTRESRAMOLOCAL,SIN_RAMO_CERT]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V3S1P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "Lnk_SIN_RAMO_CERT"
+      Partner "V3S0|V3S0P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "lookup\\type"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "IDESIN"
+         SqlType "4"
+         Precision "22"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "MTOTOTRESRAMOLOCAL"
+         SqlType "3"
+         Precision "22"
+         Scale "2"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CODRAMOCERT"
+         SqlType "12"
+         Precision "4"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "STSSINRAMOCERT"
+         SqlType "12"
+         Precision "3"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "194"
+      TopTextPos "408"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V4S0"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "ds_DET_APROB"
+      NextID "2"
+      InputPins "V4S0P1"
+      StageType "PxDataSet"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V4S0P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "Lnk_DET_APROB"
+      Partner "V4S1|V4S1P1"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "dataset"
+         Value "#AX_Parametros.pRuta#axDetAprob.ds"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "datasetmode"
+         Value ">| [ds"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Part/Col"
+         Value "hash -key IDESIN"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Sort"
+         Value "tsort -key IDESIN -asc -nulls first -key NUMAPROB -asc -nulls first"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SortAdv"
+         Value "-nonStable"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "_PartColSortColumns"
+         Value "IDESIN,NUMAPROB"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V4S1"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "OC_Ora_DET_APROB"
+      NextID "2"
+      OutputPins "V4S1P1"
+      StageType "OracleConnectorPX"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariants"
+         Value "V1;10:\"10g\":ccora10g;11:\"11g\":ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsLibraries"
+         Value "ccora10g,ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsVersions"
+         Value "1.0,1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Orientation"
+         Value "link"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Engine"
+         Value "EE"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Context"
+         Value "source"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectionString"
+         Value "/Connection/Server"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Username"
+         Value "/Connection/Username"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Password"
+         Value "/Connection/Password"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "xaoDbName"
+         Value "/Connection/xaoDbName"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OSLevelAuthentication"
+         Value "/Connection/OSLevelAuthentication"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLProperties"
+         Value "<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type='int'><![CDATA[0]]></ReadMode><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT MTOAPROB,IDESIN,NUMAPROB FROM ACSELX.DET_APROB]]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[ACSELX.DET_APROB]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[NUMAPROB,NUMAPROB,DET_APROB]]></Column><Column type='string'><![CDATA[IDESIN,IDESIN,DET_APROB]]></Column><Column type='string'><![CDATA[MTOAPROB,MTOAPROB,DET_APROB]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V4S1P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "Lnk_DET_APROB"
+      Partner "V4S0|V4S0P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "lookup\\type"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "IDESIN"
+         SqlType "4"
+         Precision "22"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "MTOAPROB"
+         SqlType "3"
+         Precision "22"
+         Scale "2"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "NUMAPROB"
+         SqlType "4"
+         Precision "22"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "178"
+      TopTextPos "265"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V5S0"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "ds_APROB_SIN"
+      NextID "2"
+      InputPins "V5S0P1"
+      StageType "PxDataSet"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V5S0P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "Lnk_APROB_SIN"
+      Partner "V5S1|V5S1P1"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "dataset"
+         Value "#AX_Parametros.pRuta#axAprobSin.ds"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "datasetmode"
+         Value ">| [ds"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Part/Col"
+         Value "hash -key IDESIN"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Sort"
+         Value "tsort -key IDESIN -asc -nulls first"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SortAdv"
+         Value "-nonStable"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "_PartColSortColumns"
+         Value "IDESIN"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V5S1"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "OC_Ora_APROB_SIN"
+      NextID "2"
+      OutputPins "V5S1P1"
+      StageType "OracleConnectorPX"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariants"
+         Value "V1;10:\"10g\":ccora10g;11:\"11g\":ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsLibraries"
+         Value "ccora10g,ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsVersions"
+         Value "1.0,1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Orientation"
+         Value "link"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Engine"
+         Value "EE"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Context"
+         Value "source"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectionString"
+         Value "/Connection/Server"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Username"
+         Value "/Connection/Username"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Password"
+         Value "/Connection/Password"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "xaoDbName"
+         Value "/Connection/xaoDbName"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OSLevelAuthentication"
+         Value "/Connection/OSLevelAuthentication"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLProperties"
+         Value "<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type='int'><![CDATA[0]]></ReadMode><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT IDESIN,TIPOAPROB,CODMONEDA,NUMOBLIG,FECSTS,CODRAMOCERT,NUMID,STSAPROB,NUMAPROB,TIPOBENEF FROM ACSELX.APROB_SIN]]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[ACSELX.APROB_SIN]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[TIPOBENEF,TIPOBENEF,APROB_SIN]]></Column><Column type='string'><![CDATA[NUMAPROB,NUMAPROB,APROB_SIN]]></Column><Column type='string'><![CDATA[STSAPROB,STSAPROB,APROB_SIN]]></Column><Column type='string'><![CDATA[NUMID,NUMID,APROB_SIN]]></Column><Column type='string'><![CDATA[CODRAMOCERT,CODRAMOCERT,APROB_SIN]]></Column><Column type='string'><![CDATA[FECSTS,FECSTS,APROB_SIN]]></Column><Column type='string'><![CDATA[NUMOBLIG,NUMOBLIG,APROB_SIN]]></Column><Column type='string'><![CDATA[CODMONEDA,CODMONEDA,APROB_SIN]]></Column><Column type='string'><![CDATA[TIPOAPROB,TIPOAPROB,APROB_SIN]]></Column><Column type='string'><![CDATA[IDESIN,IDESIN,APROB_SIN]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V5S1P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "Lnk_APROB_SIN"
+      Partner "V5S0|V5S0P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "lookup\\type"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "IDESIN"
+         SqlType "4"
+         Precision "22"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TIPOAPROB"
+         SqlType "12"
+         Precision "1"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CODMONEDA"
+         SqlType "12"
+         Precision "3"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "NUMOBLIG"
+         SqlType "4"
+         Precision "22"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "FECSTS"
+         SqlType "9"
+         Precision "0"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "CODRAMOCERT"
+         SqlType "12"
+         Precision "4"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "NUMID"
+         SqlType "4"
+         Precision "22"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "STSAPROB"
+         SqlType "12"
+         Precision "3"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "NUMAPROB"
+         SqlType "4"
+         Precision "22"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "TIPOBENEF"
+         SqlType "12"
+         Precision "4"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "264"
+      TopTextPos "192"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V6S0"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "OC_Ora_TERCERO"
+      NextID "2"
+      OutputPins "V6S0P1"
+      StageType "OracleConnectorPX"
+      AllowColumnMapping "0"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariants"
+         Value "V1;10:\"10g\":ccora10g;11:\"11g\":ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsLibraries"
+         Value "ccora10g,ccora11g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "SupportedVariantsVersions"
+         Value "1.0,1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Orientation"
+         Value "link"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Engine"
+         Value "EE"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Context"
+         Value "source"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectionString"
+         Value "/Connection/Server"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Username"
+         Value "/Connection/Username"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "Password"
+         Value "/Connection/Password"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "xaoDbName"
+         Value "/Connection/xaoDbName"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "OSLevelAuthentication"
+         Value "/Connection/OSLevelAuthentication"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "XMLProperties"
+         Value "<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type='int'><![CDATA[0]]></ReadMode><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT NUMID,NOMTER,APETER,APEMATTER FROM ACSELX.TERCERO]]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[ACSELX.TERCERO]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[APEMATTER,APEMATTER,TERCERO]]></Column><Column type='string'><![CDATA[APETER,APETER,TERCERO]]></Column><Column type='string'><![CDATA[NOMTER,NOMTER,TERCERO]]></Column><Column type='string'><![CDATA[NUMID,NUMID,TERCERO]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed='1' modified='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      END DSSUBRECORD
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V6S0P1"
+      OLEType "CCustomOutput"
+      Readonly "0"
+      Name "Lnk_TERCERO"
+      Partner "V6S1|V6S1P1"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "lookup\\type"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantName"
+         Value "10"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantLibrary"
+         Value "ccora10g"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "VariantVersion"
+         Value "1.0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectFromLink"
+         Value "-1"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectThreshold"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectNumber"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "RejectUsesPercentage"
+         Value "false"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "ConnectorName"
+         Value "OracleConnector"
+      END DSSUBRECORD
+      Columns "COutputColumn"
+      BEGIN DSSUBRECORD
+         Name "NUMID"
+         SqlType "4"
+         Precision "22"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "NOMTER"
+         SqlType "12"
+         Precision "110"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "APETER"
+         SqlType "12"
+         Precision "110"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "APEMATTER"
+         SqlType "12"
+         Precision "110"
+         Scale "0"
+         Nullable "1"
+         KeyPosition "0"
+         DisplaySize "0"
+         Group "0"
+         SortKey "0"
+         SortType "0"
+         AllowCRLF "0"
+         LevelNo "0"
+         Occurs "0"
+         PadNulls "0"
+         SignOption "0"
+         SortingOrder "0"
+         ArrayHandling "0"
+         SyncIndicator "0"
+         PadChar ""
+         ExtendedPrecision "0"
+         TaggedSubrec "0"
+         OccursVarying "0"
+         PKeyIsCaseless "0"
+         SCDPurpose "0"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SchemaFormat"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "DiskWriteInc"
+         Value "1048576"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "BufFreeRun"
+         Value "50"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "MaxMemBufSize"
+         Value "3145728"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "QueueUpperSize"
+         Value "0"
+      END DSSUBRECORD
+      LeftTextPos "189"
+      TopTextPos "478"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V6S1"
+      OLEType "CCustomStage"
+      Readonly "0"
+      Name "ds_TERCERO"
+      NextID "2"
+      InputPins "V6S1P1"
+      StageType "PxDataSet"
+      AllowColumnMapping "0"
+      NextRecordID "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V6S1P1"
+      OLEType "CCustomInput"
+      Readonly "0"
+      Name "Lnk_TERCERO"
+      Description "#psValores.pRuta#axTercero.ds"
+      Partner "V6S0|V6S0P1"
+      LinkType "1"
+      ConditionNotMet "fail"
+      LookupFail "fail"
+      Properties "CCustomProperty"
+      BEGIN DSSUBRECORD
+         Name "dataset"
+         Value "#AX_Parametros.pRuta#axTercero.ds"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Name "datasetmode"
+         Value ">| [ds"
+      END DSSUBRECORD
+      MetaBag "CMetaProperty"
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "RTColumnProp"
+         Value "0"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Part/Col"
+         Value "hash -key NUMID"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "Sort"
+         Value "tsort -key NUMID -asc -nulls first"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SortAdv"
+         Value "-nonStable"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "_PartColSortColumns"
+         Value "NUMID"
+      END DSSUBRECORD
+      BEGIN DSSUBRECORD
+         Owner "APT"
+         Name "SeqSort"
+         Value "0"
+      END DSSUBRECORD
+      TransactionSize "0"
+      TXNBehaviour "0"
+      EnableTxGroup "0"
+      LinkMinimised "0"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V7A0"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V7A0"
+      NextID "0"
+      AnnotationType "0"
+      AnnotationText =+=+=+=
+Hash - Sort - IDSIN
+axAprobSin.ds
+=+=+=+=
+      TextFont "MS Shell Dlg\\10\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "0"
+      TextVerticalJustification "1"
+      TextColor "0"
+      BackgroundColor "8454016"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V8A0"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V8A0"
+      NextID "0"
+      AnnotationType "0"
+      AnnotationText =+=+=+=
+Hash - IDSIN
+Sort - IDSIN, NUMAPROB
+axDetAprob.ds
+=+=+=+=
+      TextFont "MS Shell Dlg\\10\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "0"
+      TextVerticalJustification "1"
+      TextColor "0"
+      BackgroundColor "8454016"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "V9A0"
+      OLEType "CAnnotation"
+      Readonly "0"
+      Name "V9A0"
+      NextID "0"
+      AnnotationType "0"
+      AnnotationText =+=+=+=
+Hash - Sort - CODLVAL
+axLval.ds
+=+=+=+=
+      TextFont "MS Shell Dlg\\10\\0\\0\\0\\400\\0"
+      TextHorizontalJustification "0"
+      TextVerticalJustification "1"
+      TextColor "0"
+      BackgroundColor "8454016"
+      BackgroundTransparent "0"
+      BorderVisible "1"
+   END DSRECORD
+END DSJOB
+BEGIN DSEXECJOB
+   Identifier "AX_P01_J01_Extraccion"
+   DateModified "1899-12-30"
+   TimeModified "00.00.01"
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion"
+      F1 "JOB"
+      F3 "9.1///55/C"
+      F5 "AX_Parametros\VAX_Parametros.pFecIni\VAX_Parametros.pFecFin\VAX_Parametros.pRuta\VAX_Parametros.pConAcselX\VAX_Parametros.pUsrAceslX\VAX_Parametros.pPassAcselX\VAX_Parametros.pConSPSSL\VAX_Parametros.pUsrSPSSL\VAX_Parametros.pPassSPSSL\VAX_Parametros.P_MAIL_SERVER\VAX_Parametros.P_MAIL_SENDER\VAX_Parametros.P_OPS_MAIL_RECIPIENTS\VAX_Parametros.P_SRC_MAIL_RECIPIENTS"
+      F6 "AX_Parametros parameters\VFecha Inicio(AAAA-MM-DD)\VFecha Fin(AAAA-MM-DD)\VRuta Archivo\VConexión ACSELX\VUsuario ACSELX\VContraseña ACSELX\VConexión SPSSL\VUsuario SPSSL\VContraseña SPSSL\VP_MAIL_SERVER\VP_MAIL_SENDER\VP_OPS_MAIL_RECIPIENTS\VP_SRC_MAIL_RECIPIENTS"
+      F7 "(As pre-defined)\V\V\V\V\V\V\V\V\V\V\V\V\V"
+      F8 "\VYYYY-MM-DD\VYYYY-MM-DD\V\V\V\V\V\V\V\V\V\V\V"
+      F9 "13\V6\V6\V0\V0\V0\V1\V0\V0\V1\V0\V0\V0\V0"
+      F10 "V0"
+      F11 "EXTRACCION DE DDATOS - ACSELX"
+      F15 "OracleConnectorPX\VPxDataSet"
+      F18 "(As pre-defined)\V\V\V\V\V\V\V\V\V\V\V\V\V"
+      F21 "1\V1\V1\V1\V1\V1\V1\V1\V1\V1\V1\V1\V1\V1"
+      F24 ",,,,"
+      F28 "\\Jobs\\AX_P01_Extraccion"
+      F29 "0"
+      F30 "0"
+      F31 "2018-06-08 08:58:24"
+      F32 "3"
+      F34 "0\V1\VIBMrios\V0\V\V#DSProjectARTOptions#\V1252\V\V\V\V\V\V0\V0"
+      F35 "OC_Ora_SINIESTRO\VOC_Ora_LVAL\VOC_Ora_SIN_RAMO_CERT\VOC_Ora_DET_APROB\VOC_Ora_APROB_SIN\VOC_Ora_TERCERO\VOC_Ora_TASA_CAMBIO"
+      F36 "rstadiis02"
+      F37 "SIN_AFR"
+      F38 "0"
+      F39 "AX_P01_J01_Extraccion.OC_Ora_SINIESTRO\VAX_P01_J01_Extraccion.ds_SINIESTRO\VAX_P01_J01_Extraccion.ds_LVAL\VAX_P01_J01_Extraccion.OC_Ora_LVAL\VAX_P01_J01_Extraccion.ds_SIN_RAMO_CERT\VAX_P01_J01_Extraccion.OC_Ora_SIN_RAMO_CERT\VAX_P01_J01_Extraccion.ds_DET_APROB\VAX_P01_J01_Extraccion.OC_Ora_DET_APROB\VAX_P01_J01_Extraccion.ds_APROB_SIN\VAX_P01_J01_Extraccion.OC_Ora_APROB_SIN\VAX_P01_J01_Extraccion.OC_Ora_TERCERO\VAX_P01_J01_Extraccion.ds_TERCERO\VAX_P01_J01_Extraccion.ds_TASA_CAMBIO\VAX_P01_J01_Extraccion.OC_Ora_TASA_CAMBIO"
+      F41 "0"
+      F43 ",,,,"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.ds_APROB_SIN"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F9 "AX_P01_J01_Extraccion.OC_Ora_APROB_SIN.Lnk_APROB_SIN"
+      F16 "PxDataSet"
+      F31 "AX_P01_J01_Extraccion.ds_APROB_SIN"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.ds_DET_APROB"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F9 "AX_P01_J01_Extraccion.OC_Ora_DET_APROB.Lnk_DET_APROB"
+      F16 "PxDataSet"
+      F31 "AX_P01_J01_Extraccion.ds_DET_APROB"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.ds_LVAL"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F9 "AX_P01_J01_Extraccion.OC_Ora_LVAL.Lnk_LVAL"
+      F16 "PxDataSet"
+      F31 "AX_P01_J01_Extraccion.ds_LVAL"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.ds_SIN_RAMO_CERT"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F9 "AX_P01_J01_Extraccion.OC_Ora_SIN_RAMO_CERT.Lnk_SIN_RAMO_CERT"
+      F16 "PxDataSet"
+      F31 "AX_P01_J01_Extraccion.ds_SIN_RAMO_CERT"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.ds_SINIESTRO"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F9 "AX_P01_J01_Extraccion.OC_Ora_SINIESTRO.Lnk_SINIESTRO"
+      F16 "PxDataSet"
+      F31 "AX_P01_J01_Extraccion.ds_SINIESTRO"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.ds_TASA_CAMBIO"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F9 "AX_P01_J01_Extraccion.OC_Ora_TASA_CAMBIO.Lnk_TASA_CAMBIO"
+      F16 "PxDataSet"
+      F31 "AX_P01_J01_Extraccion.ds_TASA_CAMBIO"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.ds_TERCERO"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F9 "AX_P01_J01_Extraccion.OC_Ora_TERCERO.Lnk_TERCERO"
+      F16 "PxDataSet"
+      F31 "AX_P01_J01_Extraccion.ds_TERCERO"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_APROB_SIN"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F10 "AX_P01_J01_Extraccion.OC_Ora_APROB_SIN.Lnk_APROB_SIN"
+      F13 "VariantName\VVariantLibrary\VVariantVersion\VSupportedVariants\VSupportedVariantsLibraries\VSupportedVariantsVersions\VOrientation\VRejectFromLink\VRejectThreshold\VRejectNumber\VRejectUsesPercentage\VConnectorName\VEngine\VContext\VConnectionString\VUsername\VPassword\VxaoDbName\VOSLevelAuthentication\VXMLProperties"
+      F14 "10\Vccora10g\V1.0\VV1;10:\"10g\":ccora10g;11:\"11g\":ccora11g\Vccora10g,ccora11g\V1.0,1.0\Vlink\V-1\V0\V0\Vfalse\VOracleConnector\VEE\Vsource\V/Connection/Server\V/Connection/Username\V/Connection/Password\V/Connection/xaoDbName\V/Connection/OSLevelAuthentication\V<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type='int'><![CDATA[0]]></ReadMode><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT IDESIN,TIPOAPROB,CODMONEDA,NUMOBLIG,FECSTS,CODRAMOCERT,NUMID,STSAPROB,NUMAPROB,TIPOBENEF FROM ACSELX.APROB_SIN]]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[ACSELX.APROB_SIN]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[TIPOBENEF,TIPOBENEF,APROB_SIN]]></Column><Column type='string'><![CDATA[NUMAPROB,NUMAPROB,APROB_SIN]]></Column><Column type='string'><![CDATA[STSAPROB,STSAPROB,APROB_SIN]]></Column><Column type='string'><![CDATA[NUMID,NUMID,APROB_SIN]]></Column><Column type='string'><![CDATA[CODRAMOCERT,CODRAMOCERT,APROB_SIN]]></Column><Column type='string'><![CDATA[FECSTS,FECSTS,APROB_SIN]]></Column><Column type='string'><![CDATA[NUMOBLIG,NUMOBLIG,APROB_SIN]]></Column><Column type='string'><![CDATA[CODMONEDA,CODMONEDA,APROB_SIN]]></Column><Column type='string'><![CDATA[TIPOAPROB,TIPOAPROB,APROB_SIN]]></Column><Column type='string'><![CDATA[IDESIN,IDESIN,APROB_SIN]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      F16 "OracleConnectorPX"
+      F23 "0\V0\V0\V0\V0\V0\V0\V2\V2\V2\V11\V0\V0\V0\V0\V0\V1\V0\V0\V0"
+      F31 "AX_P01_J01_Extraccion.OC_Ora_APROB_SIN"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_APROB_SIN.Lnk_APROB_SIN"
+      F1 "INPIN"
+      F3 "9.1///55/C"
+      F5 "10"
+      F16 "AX_P01_J01_Extraccion.OC_Ora_APROB_SIN\VAX_P01_J01_Extraccion.ds_APROB_SIN"
+      F21 "IDESIN\VTIPOAPROB\VCODMONEDA\VNUMOBLIG\VFECSTS\VCODRAMOCERT\VNUMID\VSTSAPROB\VNUMAPROB\VTIPOBENEF"
+      F22 "0\V0\V0\V0\V0\V0\V0\V0\V0\V0"
+      F25 "4\V12\V12\V4\V9\V12\V4\V12\V4\V12"
+      F26 "22\V1\V3\V22\V0\V4\V22\V3\V22\V4"
+      F27 "0\V0\V0\V0\V0\V0\V0\V0\V0\V0"
+      F28 "0\V0\V0\V0\V0\V0\V0\V0\V0\V0"
+      F39 "Lnk_APROB_SIN"
+      F40 "1\V1\V1\V1\V1\V1\V1\V1\V1\V1"
+      F50 "\V"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_DET_APROB"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F10 "AX_P01_J01_Extraccion.OC_Ora_DET_APROB.Lnk_DET_APROB"
+      F13 "VariantName\VVariantLibrary\VVariantVersion\VSupportedVariants\VSupportedVariantsLibraries\VSupportedVariantsVersions\VOrientation\VRejectFromLink\VRejectThreshold\VRejectNumber\VRejectUsesPercentage\VConnectorName\VEngine\VContext\VConnectionString\VUsername\VPassword\VxaoDbName\VOSLevelAuthentication\VXMLProperties"
+      F14 "10\Vccora10g\V1.0\VV1;10:\"10g\":ccora10g;11:\"11g\":ccora11g\Vccora10g,ccora11g\V1.0,1.0\Vlink\V-1\V0\V0\Vfalse\VOracleConnector\VEE\Vsource\V/Connection/Server\V/Connection/Username\V/Connection/Password\V/Connection/xaoDbName\V/Connection/OSLevelAuthentication\V<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type='int'><![CDATA[0]]></ReadMode><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT MTOAPROB,IDESIN,NUMAPROB FROM ACSELX.DET_APROB]]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[ACSELX.DET_APROB]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[NUMAPROB,NUMAPROB,DET_APROB]]></Column><Column type='string'><![CDATA[IDESIN,IDESIN,DET_APROB]]></Column><Column type='string'><![CDATA[MTOAPROB,MTOAPROB,DET_APROB]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      F16 "OracleConnectorPX"
+      F23 "0\V0\V0\V0\V0\V0\V0\V2\V2\V2\V11\V0\V0\V0\V0\V0\V1\V0\V0\V0"
+      F31 "AX_P01_J01_Extraccion.OC_Ora_DET_APROB"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_DET_APROB.Lnk_DET_APROB"
+      F1 "INPIN"
+      F3 "9.1///55/C"
+      F5 "3"
+      F16 "AX_P01_J01_Extraccion.OC_Ora_DET_APROB\VAX_P01_J01_Extraccion.ds_DET_APROB"
+      F21 "IDESIN\VMTOAPROB\VNUMAPROB"
+      F22 "0\V0\V0"
+      F25 "4\V3\V4"
+      F26 "22\V22\V22"
+      F27 "0\V2\V0"
+      F28 "0\V0\V0"
+      F39 "Lnk_DET_APROB"
+      F40 "1\V1\V1"
+      F50 "\V"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_LVAL"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F10 "AX_P01_J01_Extraccion.OC_Ora_LVAL.Lnk_LVAL"
+      F13 "VariantName\VVariantLibrary\VVariantVersion\VSupportedVariants\VSupportedVariantsLibraries\VSupportedVariantsVersions\VOrientation\VRejectFromLink\VRejectThreshold\VRejectNumber\VRejectUsesPercentage\VConnectorName\VEngine\VContext\VConnectionString\VUsername\VPassword\VxaoDbName\VOSLevelAuthentication\VXMLProperties"
+      F14 "10\Vccora10g\V1.0\VV1;10:\"10g\":ccora10g;11:\"11g\":ccora11g\Vccora10g,ccora11g\V1.0,1.0\Vlink\V-1\V0\V0\Vfalse\VOracleConnector\VEE\Vsource\V/Connection/Server\V/Connection/Username\V/Connection/Password\V/Connection/xaoDbName\V/Connection/OSLevelAuthentication\V<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type='int'><![CDATA[0]]></ReadMode><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT TIPOLVAL, CODLVAL , DESCRIP FROM ACSELX.LVAL]]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[ACSELX.LVAL]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[DESCRIP,DESCRIP,LVAL]]></Column><Column type='string'><![CDATA[CODLVAL,CODLVAL,LVAL]]></Column><Column type='string'><![CDATA[TIPOLVAL,TIPOLVAL,LVAL]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      F16 "OracleConnectorPX"
+      F23 "0\V0\V0\V0\V0\V0\V0\V2\V2\V2\V11\V0\V0\V0\V0\V0\V1\V0\V0\V0"
+      F31 "AX_P01_J01_Extraccion.OC_Ora_LVAL"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_LVAL.Lnk_LVAL"
+      F1 "INPIN"
+      F3 "9.1///55/C"
+      F5 "3"
+      F16 "AX_P01_J01_Extraccion.OC_Ora_LVAL\VAX_P01_J01_Extraccion.ds_LVAL"
+      F21 "TIPOLVAL\VCODLVAL\VDESCRIP"
+      F22 "0\V0\V0"
+      F25 "12\V12\V12"
+      F26 "8\V20\V150"
+      F27 "0\V0\V0"
+      F28 "0\V0\V0"
+      F39 "Lnk_LVAL"
+      F40 "1\V1\V1"
+      F50 "\V"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_SIN_RAMO_CERT"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F10 "AX_P01_J01_Extraccion.OC_Ora_SIN_RAMO_CERT.Lnk_SIN_RAMO_CERT"
+      F13 "VariantName\VVariantLibrary\VVariantVersion\VSupportedVariants\VSupportedVariantsLibraries\VSupportedVariantsVersions\VOrientation\VRejectFromLink\VRejectThreshold\VRejectNumber\VRejectUsesPercentage\VConnectorName\VEngine\VContext\VConnectionString\VUsername\VPassword\VxaoDbName\VOSLevelAuthentication\VXMLProperties"
+      F14 "10\Vccora10g\V1.0\VV1;10:\"10g\":ccora10g;11:\"11g\":ccora11g\Vccora10g,ccora11g\V1.0,1.0\Vlink\V-1\V0\V0\Vfalse\VOracleConnector\VEE\Vsource\V/Connection/Server\V/Connection/Username\V/Connection/Password\V/Connection/xaoDbName\V/Connection/OSLevelAuthentication\V<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type='int'><![CDATA[0]]></ReadMode><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT MTOTOTRESRAMOLOCAL,IDESIN,CODRAMOCERT,STSSINRAMOCERT FROM ACSELX.SIN_RAMO_CERT]]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[ACSELX.SIN_RAMO_CERT]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[STSSINRAMOCERT,STSSINRAMOCERT,SIN_RAMO_CERT]]></Column><Column type='string'><![CDATA[CODRAMOCERT,CODRAMOCERT,SIN_RAMO_CERT]]></Column><Column type='string'><![CDATA[IDESIN,IDESIN,SIN_RAMO_CERT]]></Column><Column type='string'><![CDATA[MTOTOTRESRAMOLOCAL,MTOTOTRESRAMOLOCAL,SIN_RAMO_CERT]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      F16 "OracleConnectorPX"
+      F23 "0\V0\V0\V0\V0\V0\V0\V2\V2\V2\V11\V0\V0\V0\V0\V0\V1\V0\V0\V0"
+      F31 "AX_P01_J01_Extraccion.OC_Ora_SIN_RAMO_CERT"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_SIN_RAMO_CERT.Lnk_SIN_RAMO_CERT"
+      F1 "INPIN"
+      F3 "9.1///55/C"
+      F5 "4"
+      F16 "AX_P01_J01_Extraccion.OC_Ora_SIN_RAMO_CERT\VAX_P01_J01_Extraccion.ds_SIN_RAMO_CERT"
+      F21 "IDESIN\VMTOTOTRESRAMOLOCAL\VCODRAMOCERT\VSTSSINRAMOCERT"
+      F22 "0\V0\V0\V0"
+      F25 "4\V3\V12\V12"
+      F26 "22\V22\V4\V3"
+      F27 "0\V2\V0\V0"
+      F28 "0\V0\V0\V0"
+      F39 "Lnk_SIN_RAMO_CERT"
+      F40 "1\V1\V1\V1"
+      F50 "\V"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_SINIESTRO"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F10 "AX_P01_J01_Extraccion.OC_Ora_SINIESTRO.Lnk_SINIESTRO"
+      F13 "VariantName\VVariantLibrary\VVariantVersion\VSupportedVariants\VSupportedVariantsLibraries\VSupportedVariantsVersions\VOrientation\VRejectFromLink\VRejectThreshold\VRejectNumber\VRejectUsesPercentage\VConnectorName\VEngine\VContext\VConnectionString\VUsername\VPassword\VxaoDbName\VOSLevelAuthentication\VXMLProperties"
+      F14 "10\Vccora10g\V1.0\VV1;10:\"10g\":ccora10g;11:\"11g\":ccora11g\Vccora10g,ccora11g\V1.0,1.0\Vlink\V-1\V0\V0\Vfalse\VOracleConnector\VEE\Vsource\V/Connection/Server\V/Connection/Username\V/Connection/Password\V/Connection/xaoDbName\V/Connection/OSLevelAuthentication\V<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode modified='1' type='int'><![CDATA[0]]></ReadMode><GenerateSQL modified='1' type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT IDESIN,CODSIN,NUMSIN,NUMCERT,STSSIN FROM ACSELX.SINIESTRO]]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[ACSELX.SINIESTRO]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[STSSIN,STSSIN,SINIESTRO]]></Column><Column type='string'><![CDATA[NUMCERT,NUMCERT,SINIESTRO]]></Column><Column type='string'><![CDATA[NUMSIN,NUMSIN,SINIESTRO]]></Column><Column type='string'><![CDATA[CODSIN,CODSIN,SINIESTRO]]></Column><Column type='string'><![CDATA[IDESIN,IDESIN,SINIESTRO]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed='1' modified='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      F16 "OracleConnectorPX"
+      F23 "0\V0\V0\V0\V0\V0\V0\V2\V2\V2\V11\V0\V0\V0\V0\V0\V1\V0\V0\V0"
+      F31 "AX_P01_J01_Extraccion.OC_Ora_SINIESTRO"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_SINIESTRO.Lnk_SINIESTRO"
+      F1 "OUTPIN"
+      F3 "9.1///55/C"
+      F5 "5"
+      F16 "AX_P01_J01_Extraccion.OC_Ora_SINIESTRO\VAX_P01_J01_Extraccion.ds_SINIESTRO"
+      F21 "IDESIN\VCODSIN\VNUMSIN\VNUMCERT\VSTSSIN"
+      F22 "0\V0\V0\V0\V0"
+      F25 "4\V12\V4\V4\V12"
+      F26 "22\V6\V22\V22\V3"
+      F27 "0\V0\V0\V0\V0"
+      F28 "0\V0\V0\V0\V0"
+      F39 "Lnk_SINIESTRO"
+      F40 "1\V1\V1\V1\V1"
+      F50 "\V"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_TASA_CAMBIO"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F10 "AX_P01_J01_Extraccion.OC_Ora_TASA_CAMBIO.Lnk_TASA_CAMBIO"
+      F13 "VariantName\VVariantLibrary\VVariantVersion\VSupportedVariants\VSupportedVariantsLibraries\VSupportedVariantsVersions\VOrientation\VRejectFromLink\VRejectThreshold\VRejectNumber\VRejectUsesPercentage\VConnectorName\VEngine\VContext\VConnectionString\VUsername\VPassword\VxaoDbName\VOSLevelAuthentication\VXMLProperties"
+      F14 "10\Vccora10g\V1.0\VV1;10:\"10g\":ccora10g;11:\"11g\":ccora11g\Vccora10g,ccora11g\V1.0,1.0\Vlink\V-1\V0\V0\Vfalse\VOracleConnector\VEE\Vsource\V/Connection/Server\V/Connection/Username\V/Connection/Password\V/Connection/xaoDbName\V/Connection/OSLevelAuthentication\V<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type='int'><![CDATA[0]]></ReadMode><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT TASACAMBIO * 1, FECHORACAMBIO FROM TASA_CAMBIO WHERE TIPOTASA = 'D'  AND CODMONEDAFIN = 'SOL'  AND CODMONEDA = 'USD']]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[TASA_CAMBIO]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[FECHORACAMBIO,FECHORACAMBIO,TASA_CAMBIO]]></Column><Column type='string'><![CDATA[defaulted_alias1,TASACAMBIO,TASA_CAMBIO]]></Column></Columns><WhereClause type='string'><![CDATA[(TIPOTASA = 'D' AND CODMONEDAFIN = 'SOL' AND CODMONEDA = 'USD')]]></WhereClause></SelectStatement></SQL><EnablePartitionedReads collapsed='1' modified='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      F16 "OracleConnectorPX"
+      F23 "0\V0\V0\V0\V0\V0\V0\V2\V2\V2\V11\V0\V0\V0\V0\V0\V1\V0\V0\V0"
+      F31 "AX_P01_J01_Extraccion.OC_Ora_TASA_CAMBIO"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_TASA_CAMBIO.Lnk_TASA_CAMBIO"
+      F1 "INPIN"
+      F3 "9.1///55/C"
+      F5 "2"
+      F16 "AX_P01_J01_Extraccion.OC_Ora_TASA_CAMBIO\VAX_P01_J01_Extraccion.ds_TASA_CAMBIO"
+      F21 "TASACAMBIO\VFECHORACAMBIO"
+      F22 "0\V0"
+      F25 "3\V9"
+      F26 "22\V0"
+      F27 "6\V0"
+      F28 "0\V0"
+      F39 "Lnk_TASA_CAMBIO"
+      F40 "1\V1"
+      F50 "\V#psValores.pRuta#axTercero.ds"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_TERCERO"
+      F1 "STAGE"
+      F2 "CUSTOM"
+      F3 "9.1///55/C"
+      F4 "AX_P01_J01_Extraccion"
+      F10 "AX_P01_J01_Extraccion.OC_Ora_TERCERO.Lnk_TERCERO"
+      F13 "VariantName\VVariantLibrary\VVariantVersion\VSupportedVariants\VSupportedVariantsLibraries\VSupportedVariantsVersions\VOrientation\VRejectFromLink\VRejectThreshold\VRejectNumber\VRejectUsesPercentage\VConnectorName\VEngine\VContext\VConnectionString\VUsername\VPassword\VxaoDbName\VOSLevelAuthentication\VXMLProperties"
+      F14 "10\Vccora10g\V1.0\VV1;10:\"10g\":ccora10g;11:\"11g\":ccora11g\Vccora10g,ccora11g\V1.0,1.0\Vlink\V-1\V0\V0\Vfalse\VOracleConnector\VEE\Vsource\V/Connection/Server\V/Connection/Username\V/Connection/Password\V/Connection/xaoDbName\V/Connection/OSLevelAuthentication\V<?xml version='1.0' encoding='UTF-16'?><Properties version='1.1'><Common><Context type='int'>1</Context><Variant type='string'>10</Variant><DescriptorVersion type='string'>1.0</DescriptorVersion><PartitionType type='int'>-1</PartitionType><RCP type='int'>0</RCP></Common><Connection><Server modified='1' type='string'><![CDATA[#AX_Parametros.pConAcselX#]]></Server><Username modified='1' type='string'><![CDATA[#AX_Parametros.pUsrAceslX#]]></Username><Password modified='1' type='string'><![CDATA[#AX_Parametros.pPassAcselX#]]></Password><OSLevelAuthentication type='bool'><![CDATA[0]]></OSLevelAuthentication><Version type='string'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type='int'><![CDATA[0]]></ReadMode><GenerateSQL type='bool'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type='bool'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified='1' type='string'><![CDATA[SELECT NUMID,NOMTER,APETER,APEMATTER FROM ACSELX.TERCERO]]><ReadFromFileSelect type='bool'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed='1'><Table type='string'><![CDATA[ACSELX.TERCERO]]></Table></Tables><Parameters collapsed='1'></Parameters><Columns collapsed='1'><Column type='string'><![CDATA[APEMATTER,APEMATTER,TERCERO]]></Column><Column type='string'><![CDATA[APETER,APETER,TERCERO]]></Column><Column type='string'><![CDATA[NOMTER,NOMTER,TERCERO]]></Column><Column type='string'><![CDATA[NUMID,NUMID,TERCERO]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed='1' modified='1' type='bool'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type='int'><![CDATA[0]]></IsolationLevel><RecordCount type='int'><![CDATA[2000]]></RecordCount><EndOfWave type='int'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type='int'><![CDATA[2000]]></ArraySize><PrefetchRowCount type='int'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type='int'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed='1' type='bool'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type='bool'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type='bool'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type='bool'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed='1' type='bool'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed='1' type='bool'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed='1' type='bool'><![CDATA[0]]></LimitRows></Usage></Properties >"
+      F16 "OracleConnectorPX"
+      F23 "0\V0\V0\V0\V0\V0\V0\V2\V2\V2\V11\V0\V0\V0\V0\V0\V1\V0\V0\V0"
+      F31 "AX_P01_J01_Extraccion.OC_Ora_TERCERO"
+      F32 "-1.-1"
+      F40 "1"
+   END DSRECORD
+   BEGIN DSRECORD
+      Identifier "AX_P01_J01_Extraccion.OC_Ora_TERCERO.Lnk_TERCERO"
+      F1 "OUTPIN"
+      F3 "9.1///55/C"
+      F5 "4"
+      F16 "AX_P01_J01_Extraccion.OC_Ora_TERCERO\VAX_P01_J01_Extraccion.ds_TERCERO"
+      F21 "NUMID\VNOMTER\VAPETER\VAPEMATTER"
+      F22 "0\V0\V0\V0"
+      F25 "4\V12\V12\V12"
+      F26 "22\V110\V110\V110"
+      F27 "0\V0\V0\V0"
+      F28 "0\V0\V0\V0"
+      F39 "Lnk_TERCERO"
+      F40 "1\V1\V1\V1"
+      F50 "\V#psValores.pRuta#axTercero.ds"
+   END DSRECORD
+   COMMENT No program sources in executable job
+   COMMENT No program binaries in executable job
+   BEGIN DSSCRIPT
+      Identifier "OshExecuter.sh"
+      TERMINATOR =+=+=+=
+#!/bin/sh
+# Shell script for Datastage to execute an osh script, generated at 2018-06-08 08:58:24
+# Compiler runtime stamp 9.1///55/C
+#
+# Parameters:
+# $1 - Run indicator: R=normal run, P=performance wrappered run
+# $2 - Environment variable file name - dummy
+# $3... - Osh / performance checker command line arguments
+RunIndicator=$1
+DummyEnv=$2
+shift
+shift
+if test ! -x "$APT_ORCHHOME/bin/osh"
+  then echo '##OSHRETVAL NOOSH'
+  exit 1
+fi
+# Test for resource estimation option.
+if test $RunIndicator = P
+  then $APT_ORCHHOME/bin/orchresest "$@" 2>&1 &
+  else $APT_ORCHHOME/bin/osh "$@" 2>&1 &
+fi
+oshpid=$!
+# Write the pid of the conductor process
+echo '##OSHPID' $oshpid
+wait $oshpid
+oshcode=$?
+oshdir=`dirname $0`
+# Write the terminating string
+echo '##OSHRETVAL' $oshcode > $oshdir/../RT_SCTEMP/$oshpid.retval
+echo '##OSHRETVAL' $oshcode
+# end of script
+=+=+=+=
+   END DSSCRIPT
+   BEGIN DSSCRIPT
+      Identifier "OshScript.osh"
+      TERMINATOR =+=+=+=
+# OSH / orchestrate script for Job AX_P01_J01_Extraccion compiled at 08:58:24 08 JUN 2018
+#################################################################
+#### STAGE: OC_Ora_SINIESTRO
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode modified=\\'1\\' type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL modified=\\'1\\' type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT IDESIN,CODSIN,NUMSIN,NUMCERT,STSSIN FROM ACSELX.SINIESTRO]]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[ACSELX.SINIESTRO]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[STSSIN,STSSIN,SINIESTRO]]></Column><Column type=\\'string\\'><![CDATA[NUMCERT,NUMCERT,SINIESTRO]]></Column><Column type=\\'string\\'><![CDATA[NUMSIN,NUMSIN,SINIESTRO]]></Column><Column type=\\'string\\'><![CDATA[CODSIN,CODSIN,SINIESTRO]]></Column><Column type=\\'string\\'><![CDATA[IDESIN,IDESIN,SINIESTRO]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' modified=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={IDESIN=4, CODSIN=12, NUMSIN=4, NUMCERT=4, STSSIN=12}, 
+      DSSQLPrecision={IDESIN=22, CODSIN=6, NUMSIN=22, NUMCERT=22, STSSIN=3}, 
+      DSSchema=\\'record
+         (
+           IDESIN\\:nullable int32\\;
+           CODSIN\\:nullable string\\[max\\=6\\]\\;
+           NUMSIN\\:nullable int32\\;
+           NUMCERT\\:nullable int32\\;
+           STSSIN\\:nullable string\\[max\\=3\\]\\;
+         )\\'
+}'
+   
+## General options
+[ident('OC_Ora_SINIESTRO'); jobmon_ident('OC_Ora_SINIESTRO')]
+## Outputs
+0> [modify (
+  IDESIN:nullable int32=IDESIN;
+  CODSIN:nullable string[max=6]=CODSIN;
+  NUMSIN:nullable int32=NUMSIN;
+  NUMCERT:nullable int32=NUMCERT;
+  STSSIN:nullable string[max=3]=STSSIN;
+keep
+  IDESIN,CODSIN,NUMSIN,NUMCERT,
+  STSSIN;
+)] 'OC_Ora_SINIESTRO:Lnk_SINIESTRO.v'
+;
+#### STAGE: ds_SINIESTRO.Lnk_SINIESTRO_Part
+## Operator
+hash -key IDESIN
+## General options
+[ident('ds_SINIESTRO.Lnk_SINIESTRO_Part')]
+## Inputs
+0< [] 'OC_Ora_SINIESTRO:Lnk_SINIESTRO.v'
+## Outputs
+0> [] 'OC_Ora_SINIESTRO:Lnk_SINIESTRO_Part.v'
+;
+#### STAGE: ds_SINIESTRO.Lnk_SINIESTRO_Sort
+## Operator
+tsort -key IDESIN -asc -nulls first -nonStable
+## General options
+[ident('ds_SINIESTRO.Lnk_SINIESTRO_Sort')]
+## Inputs
+0< [] 'OC_Ora_SINIESTRO:Lnk_SINIESTRO_Part.v'
+## Outputs
+0> [] 'OC_Ora_SINIESTRO:Lnk_SINIESTRO_Part_Sort.v'
+;
+#################################################################
+#### STAGE: ds_SINIESTRO
+## Operator
+copy
+## General options
+[ident('ds_SINIESTRO')]
+## Inputs
+0< [] 'OC_Ora_SINIESTRO:Lnk_SINIESTRO_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axSiniestro.ds'
+;
+#### STAGE: ds_LVAL.Lnk_LVAL_Part
+## Operator
+hash -key CODLVAL -cs
+## General options
+[ident('ds_LVAL.Lnk_LVAL_Part')]
+## Inputs
+0< [] 'OC_Ora_LVAL:Lnk_LVAL.v'
+## Outputs
+0> [] 'OC_Ora_LVAL:Lnk_LVAL_Part.v'
+;
+#### STAGE: ds_LVAL.Lnk_LVAL_Sort
+## Operator
+tsort -key CODLVAL -cs -asc -nulls first -nonStable
+## General options
+[ident('ds_LVAL.Lnk_LVAL_Sort')]
+## Inputs
+0< [] 'OC_Ora_LVAL:Lnk_LVAL_Part.v'
+## Outputs
+0> [] 'OC_Ora_LVAL:Lnk_LVAL_Part_Sort.v'
+;
+#################################################################
+#### STAGE: ds_LVAL
+## Operator
+copy
+## General options
+[ident('ds_LVAL')]
+## Inputs
+0< [] 'OC_Ora_LVAL:Lnk_LVAL_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axLval.ds'
+;
+#################################################################
+#### STAGE: OC_Ora_LVAL
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT TIPOLVAL, CODLVAL , DESCRIP FROM ACSELX.LVAL]]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[ACSELX.LVAL]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[DESCRIP,DESCRIP,LVAL]]></Column><Column type=\\'string\\'><![CDATA[CODLVAL,CODLVAL,LVAL]]></Column><Column type=\\'string\\'><![CDATA[TIPOLVAL,TIPOLVAL,LVAL]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={TIPOLVAL=12, CODLVAL=12, DESCRIP=12}, 
+      DSSQLPrecision={TIPOLVAL=8, CODLVAL=20, DESCRIP=150}, 
+      DSSchema=\\'record
+         (
+           TIPOLVAL\\:nullable string\\[max\\=8\\]\\;
+           CODLVAL\\:nullable string\\[max\\=20\\]\\;
+           DESCRIP\\:nullable string\\[max\\=150\\]\\;
+         )\\'
+}'
+   
+## General options
+[ident('OC_Ora_LVAL'); jobmon_ident('OC_Ora_LVAL')]
+## Outputs
+0> [modify (
+  TIPOLVAL:nullable string[max=8]=TIPOLVAL;
+  CODLVAL:nullable string[max=20]=CODLVAL;
+  DESCRIP:nullable string[max=150]=DESCRIP;
+keep
+  TIPOLVAL,CODLVAL,DESCRIP;
+)] 'OC_Ora_LVAL:Lnk_LVAL.v'
+;
+#### STAGE: ds_SIN_RAMO_CERT.Lnk_SIN_RAMO_CERT_Part
+## Operator
+hash -key IDESIN
+## General options
+[ident('ds_SIN_RAMO_CERT.Lnk_SIN_RAMO_CERT_Part')]
+## Inputs
+0< [] 'OC_Ora_SIN_RAMO_CERT:Lnk_SIN_RAMO_CERT.v'
+## Outputs
+0> [] 'OC_Ora_SIN_RAMO_CERT:Lnk_SIN_RAMO_CERT_Part.v'
+;
+#### STAGE: ds_SIN_RAMO_CERT.Lnk_SIN_RAMO_CERT_Sort
+## Operator
+tsort -key IDESIN -asc -nulls first -key CODRAMOCERT -cs -asc -nulls first -nonStable
+## General options
+[ident('ds_SIN_RAMO_CERT.Lnk_SIN_RAMO_CERT_Sort')]
+## Inputs
+0< [] 'OC_Ora_SIN_RAMO_CERT:Lnk_SIN_RAMO_CERT_Part.v'
+## Outputs
+0> [] 'OC_Ora_SIN_RAMO_CERT:Lnk_SIN_RAMO_CERT_Part_Sort.v'
+;
+#################################################################
+#### STAGE: ds_SIN_RAMO_CERT
+## Operator
+copy
+## General options
+[ident('ds_SIN_RAMO_CERT')]
+## Inputs
+0< [] 'OC_Ora_SIN_RAMO_CERT:Lnk_SIN_RAMO_CERT_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axSinRamoCert.ds'
+;
+#################################################################
+#### STAGE: OC_Ora_SIN_RAMO_CERT
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT MTOTOTRESRAMOLOCAL,IDESIN,CODRAMOCERT,STSSINRAMOCERT FROM ACSELX.SIN_RAMO_CERT]]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[ACSELX.SIN_RAMO_CERT]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[STSSINRAMOCERT,STSSINRAMOCERT,SIN_RAMO_CERT]]></Column><Column type=\\'string\\'><![CDATA[CODRAMOCERT,CODRAMOCERT,SIN_RAMO_CERT]]></Column><Column type=\\'string\\'><![CDATA[IDESIN,IDESIN,SIN_RAMO_CERT]]></Column><Column type=\\'string\\'><![CDATA[MTOTOTRESRAMOLOCAL,MTOTOTRESRAMOLOCAL,SIN_RAMO_CERT]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={IDESIN=4, MTOTOTRESRAMOLOCAL=3, CODRAMOCERT=12, STSSINRAMOCERT=12}, 
+      DSSQLPrecision={IDESIN=22, MTOTOTRESRAMOLOCAL=22, CODRAMOCERT=4, STSSINRAMOCERT=3}, 
+      DSSQLScale={MTOTOTRESRAMOLOCAL=2}, 
+      DSSchema=\\'record
+         (
+           IDESIN\\:nullable int32\\;
+           MTOTOTRESRAMOLOCAL\\:nullable decimal\\[22\\,2\\]\\;
+           CODRAMOCERT\\:nullable string\\[max\\=4\\]\\;
+           STSSINRAMOCERT\\:nullable string\\[max\\=3\\]\\;
+         )\\'
+}'
+   
+## General options
+[ident('OC_Ora_SIN_RAMO_CERT'); jobmon_ident('OC_Ora_SIN_RAMO_CERT')]
+## Outputs
+0> [modify (
+  IDESIN:nullable int32=IDESIN;
+  MTOTOTRESRAMOLOCAL:nullable decimal[22,2]=MTOTOTRESRAMOLOCAL;
+  CODRAMOCERT:nullable string[max=4]=CODRAMOCERT;
+  STSSINRAMOCERT:nullable string[max=3]=STSSINRAMOCERT;
+keep
+  IDESIN,MTOTOTRESRAMOLOCAL,CODRAMOCERT,STSSINRAMOCERT;
+)] 'OC_Ora_SIN_RAMO_CERT:Lnk_SIN_RAMO_CERT.v'
+;
+#### STAGE: ds_DET_APROB.Lnk_DET_APROB_Part
+## Operator
+hash -key IDESIN
+## General options
+[ident('ds_DET_APROB.Lnk_DET_APROB_Part')]
+## Inputs
+0< [] 'OC_Ora_DET_APROB:Lnk_DET_APROB.v'
+## Outputs
+0> [] 'OC_Ora_DET_APROB:Lnk_DET_APROB_Part.v'
+;
+#### STAGE: ds_DET_APROB.Lnk_DET_APROB_Sort
+## Operator
+tsort -key IDESIN -asc -nulls first -key NUMAPROB -asc -nulls first -nonStable
+## General options
+[ident('ds_DET_APROB.Lnk_DET_APROB_Sort')]
+## Inputs
+0< [] 'OC_Ora_DET_APROB:Lnk_DET_APROB_Part.v'
+## Outputs
+0> [] 'OC_Ora_DET_APROB:Lnk_DET_APROB_Part_Sort.v'
+;
+#################################################################
+#### STAGE: ds_DET_APROB
+## Operator
+copy
+## General options
+[ident('ds_DET_APROB')]
+## Inputs
+0< [] 'OC_Ora_DET_APROB:Lnk_DET_APROB_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axDetAprob.ds'
+;
+#################################################################
+#### STAGE: OC_Ora_DET_APROB
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT MTOAPROB,IDESIN,NUMAPROB FROM ACSELX.DET_APROB]]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[ACSELX.DET_APROB]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[NUMAPROB,NUMAPROB,DET_APROB]]></Column><Column type=\\'string\\'><![CDATA[IDESIN,IDESIN,DET_APROB]]></Column><Column type=\\'string\\'><![CDATA[MTOAPROB,MTOAPROB,DET_APROB]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={IDESIN=4, MTOAPROB=3, NUMAPROB=4}, 
+      DSSQLPrecision={IDESIN=22, MTOAPROB=22, NUMAPROB=22}, 
+      DSSQLScale={MTOAPROB=2}, 
+      DSSchema=\\'record
+         (
+           IDESIN\\:nullable int32\\;
+           MTOAPROB\\:nullable decimal\\[22\\,2\\]\\;
+           NUMAPROB\\:nullable int32\\;
+         )\\'
+}'
+   
+## General options
+[ident('OC_Ora_DET_APROB'); jobmon_ident('OC_Ora_DET_APROB')]
+## Outputs
+0> [modify (
+  IDESIN:nullable int32=IDESIN;
+  MTOAPROB:nullable decimal[22,2]=MTOAPROB;
+  NUMAPROB:nullable int32=NUMAPROB;
+keep
+  IDESIN,MTOAPROB,NUMAPROB;
+)] 'OC_Ora_DET_APROB:Lnk_DET_APROB.v'
+;
+#### STAGE: ds_APROB_SIN.Lnk_APROB_SIN_Part
+## Operator
+hash -key IDESIN
+## General options
+[ident('ds_APROB_SIN.Lnk_APROB_SIN_Part')]
+## Inputs
+0< [] 'OC_Ora_APROB_SIN:Lnk_APROB_SIN.v'
+## Outputs
+0> [] 'OC_Ora_APROB_SIN:Lnk_APROB_SIN_Part.v'
+;
+#### STAGE: ds_APROB_SIN.Lnk_APROB_SIN_Sort
+## Operator
+tsort -key IDESIN -asc -nulls first -nonStable
+## General options
+[ident('ds_APROB_SIN.Lnk_APROB_SIN_Sort')]
+## Inputs
+0< [] 'OC_Ora_APROB_SIN:Lnk_APROB_SIN_Part.v'
+## Outputs
+0> [] 'OC_Ora_APROB_SIN:Lnk_APROB_SIN_Part_Sort.v'
+;
+#################################################################
+#### STAGE: ds_APROB_SIN
+## Operator
+copy
+## General options
+[ident('ds_APROB_SIN')]
+## Inputs
+0< [] 'OC_Ora_APROB_SIN:Lnk_APROB_SIN_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axAprobSin.ds'
+;
+#################################################################
+#### STAGE: OC_Ora_APROB_SIN
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT IDESIN,TIPOAPROB,CODMONEDA,NUMOBLIG,FECSTS,CODRAMOCERT,NUMID,STSAPROB,NUMAPROB,TIPOBENEF FROM ACSELX.APROB_SIN]]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[ACSELX.APROB_SIN]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[TIPOBENEF,TIPOBENEF,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[NUMAPROB,NUMAPROB,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[STSAPROB,STSAPROB,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[NUMID,NUMID,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[CODRAMOCERT,CODRAMOCERT,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[FECSTS,FECSTS,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[NUMOBLIG,NUMOBLIG,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[CODMONEDA,CODMONEDA,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[TIPOAPROB,TIPOAPROB,APROB_SIN]]></Column><Column type=\\'string\\'><![CDATA[IDESIN,IDESIN,APROB_SIN]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={IDESIN=4, TIPOAPROB=12, CODMONEDA=12, NUMOBLIG=4, FECSTS=9, CODRAMOCERT=12, NUMID=4, STSAPROB=12, NUMAPROB=4, TIPOBENEF=12}, 
+      DSSQLPrecision={IDESIN=22, TIPOAPROB=1, CODMONEDA=3, NUMOBLIG=22, CODRAMOCERT=4, NUMID=22, STSAPROB=3, NUMAPROB=22, TIPOBENEF=4}, 
+      DSSchema=\\'record
+         (
+           IDESIN\\:nullable int32\\;
+           TIPOAPROB\\:nullable string\\[max\\=1\\]\\;
+           CODMONEDA\\:nullable string\\[max\\=3\\]\\;
+           NUMOBLIG\\:nullable int32\\;
+           FECSTS\\:nullable date\\;
+           CODRAMOCERT\\:nullable string\\[max\\=4\\]\\;
+           NUMID\\:nullable int32\\;
+           STSAPROB\\:nullable string\\[max\\=3\\]\\;
+           NUMAPROB\\:nullable int32\\;
+           TIPOBENEF\\:nullable string\\[max\\=4\\]\\;
+         )\\'
+}'
+   
+## General options
+[ident('OC_Ora_APROB_SIN'); jobmon_ident('OC_Ora_APROB_SIN')]
+## Outputs
+0> [modify (
+  IDESIN:nullable int32=IDESIN;
+  TIPOAPROB:nullable string[max=1]=TIPOAPROB;
+  CODMONEDA:nullable string[max=3]=CODMONEDA;
+  NUMOBLIG:nullable int32=NUMOBLIG;
+  FECSTS:nullable date=FECSTS;
+  CODRAMOCERT:nullable string[max=4]=CODRAMOCERT;
+  NUMID:nullable int32=NUMID;
+  STSAPROB:nullable string[max=3]=STSAPROB;
+  NUMAPROB:nullable int32=NUMAPROB;
+  TIPOBENEF:nullable string[max=4]=TIPOBENEF;
+keep
+  IDESIN,TIPOAPROB,CODMONEDA,NUMOBLIG,
+  FECSTS,CODRAMOCERT,NUMID,STSAPROB,
+  NUMAPROB,TIPOBENEF;
+)] 'OC_Ora_APROB_SIN:Lnk_APROB_SIN.v'
+;
+#################################################################
+#### STAGE: OC_Ora_TERCERO
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT NUMID,NOMTER,APETER,APEMATTER FROM ACSELX.TERCERO]]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[ACSELX.TERCERO]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[APEMATTER,APEMATTER,TERCERO]]></Column><Column type=\\'string\\'><![CDATA[APETER,APETER,TERCERO]]></Column><Column type=\\'string\\'><![CDATA[NOMTER,NOMTER,TERCERO]]></Column><Column type=\\'string\\'><![CDATA[NUMID,NUMID,TERCERO]]></Column></Columns></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' modified=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={NUMID=4, NOMTER=12, APETER=12, APEMATTER=12}, 
+      DSSQLPrecision={NUMID=22, NOMTER=110, APETER=110, APEMATTER=110}, 
+      DSSchema=\\'record
+         (
+           NUMID\\:nullable int32\\;
+           NOMTER\\:nullable string\\[max\\=110\\]\\;
+           APETER\\:nullable string\\[max\\=110\\]\\;
+           APEMATTER\\:nullable string\\[max\\=110\\]\\;
+         )\\'
+}'
+   
+## General options
+[ident('OC_Ora_TERCERO'); jobmon_ident('OC_Ora_TERCERO')]
+## Outputs
+0> [modify (
+  NUMID:nullable int32=NUMID;
+  NOMTER:nullable string[max=110]=NOMTER;
+  APETER:nullable string[max=110]=APETER;
+  APEMATTER:nullable string[max=110]=APEMATTER;
+keep
+  NUMID,NOMTER,APETER,APEMATTER;
+)] 'OC_Ora_TERCERO:Lnk_TERCERO.v'
+;
+#### STAGE: ds_TERCERO.Lnk_TERCERO_Part
+## Operator
+hash -key NUMID
+## General options
+[ident('ds_TERCERO.Lnk_TERCERO_Part')]
+## Inputs
+0< [] 'OC_Ora_TERCERO:Lnk_TERCERO.v'
+## Outputs
+0> [] 'OC_Ora_TERCERO:Lnk_TERCERO_Part.v'
+;
+#### STAGE: ds_TERCERO.Lnk_TERCERO_Sort
+## Operator
+tsort -key NUMID -asc -nulls first -nonStable
+## General options
+[ident('ds_TERCERO.Lnk_TERCERO_Sort')]
+## Inputs
+0< [] 'OC_Ora_TERCERO:Lnk_TERCERO_Part.v'
+## Outputs
+0> [] 'OC_Ora_TERCERO:Lnk_TERCERO_Part_Sort.v'
+;
+#################################################################
+#### STAGE: ds_TERCERO
+## Operator
+copy
+## General options
+[ident('ds_TERCERO')]
+## Inputs
+0< [] 'OC_Ora_TERCERO:Lnk_TERCERO_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axTercero.ds'
+;
+#### STAGE: ds_TASA_CAMBIO.Lnk_TASA_CAMBIO_Part
+## Operator
+hash -key FECHORACAMBIO
+## General options
+[ident('ds_TASA_CAMBIO.Lnk_TASA_CAMBIO_Part')]
+## Inputs
+0< [] 'OC_Ora_TASA_CAMBIO:Lnk_TASA_CAMBIO.v'
+## Outputs
+0> [] 'OC_Ora_TASA_CAMBIO:Lnk_TASA_CAMBIO_Part.v'
+;
+#### STAGE: ds_TASA_CAMBIO.Lnk_TASA_CAMBIO_Sort
+## Operator
+tsort -key FECHORACAMBIO -asc -nulls first -nonStable
+## General options
+[ident('ds_TASA_CAMBIO.Lnk_TASA_CAMBIO_Sort')]
+## Inputs
+0< [] 'OC_Ora_TASA_CAMBIO:Lnk_TASA_CAMBIO_Part.v'
+## Outputs
+0> [] 'OC_Ora_TASA_CAMBIO:Lnk_TASA_CAMBIO_Part_Sort.v'
+;
+#################################################################
+#### STAGE: ds_TASA_CAMBIO
+## Operator
+copy
+## General options
+[ident('ds_TASA_CAMBIO')]
+## Inputs
+0< [] 'OC_Ora_TASA_CAMBIO:Lnk_TASA_CAMBIO_Part_Sort.v'
+## Outputs
+0>| [ds] '[&"AX_Parametros.pRuta"]axTasaCambio.ds'
+;
+#################################################################
+#### STAGE: OC_Ora_TASA_CAMBIO
+## Operator
+pxbridge
+## Operator options
+-Orientation link
+-XMLProperties '<?xml version=\\'1.0\\' encoding=\\'UTF-16\\'?><Properties version=\\'1.1\\'><Common><Context type=\\'int\\'>1</Context><Variant type=\\'string\\'>10</Variant><DescriptorVersion type=\\'string\\'>1.0</DescriptorVersion><PartitionType type=\\'int\\'>-1</PartitionType><RCP type=\\'int\\'>0</RCP></Common><Connection><Server modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pConAcselX"]]]></Server><Username modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pUsrAceslX"]]]></Username><Password modified=\\'1\\' type=\\'string\\'><![CDATA[[&"AX_Parametros.pPassAcselX"]]]></Password><OSLevelAuthentication type=\\'bool\\'><![CDATA[0]]></OSLevelAuthentication><Version type=\\'string\\'><![CDATA[10g]]></Version></Connection><Usage><ReadMode type=\\'int\\'><![CDATA[0]]></ReadMode><GenerateSQL type=\\'bool\\'><![CDATA[0]]></GenerateSQL><EnableQuotedIDs type=\\'bool\\'><![CDATA[0]]></EnableQuotedIDs><SQL><SelectStatement modified=\\'1\\' type=\\'string\\'><![CDATA[SELECT TASACAMBIO * 1, FECHORACAMBIO FROM TASA_CAMBIO WHERE TIPOTASA = \\'D\\'  AND CODMONEDAFIN = \\'SOL\\'  AND CODMONEDA = \\'USD\\']]><ReadFromFileSelect type=\\'bool\\'><![CDATA[0]]></ReadFromFileSelect><Tables collapsed=\\'1\\'><Table type=\\'string\\'><![CDATA[TASA_CAMBIO]]></Table></Tables><Parameters collapsed=\\'1\\'></Parameters><Columns collapsed=\\'1\\'><Column type=\\'string\\'><![CDATA[FECHORACAMBIO,FECHORACAMBIO,TASA_CAMBIO]]></Column><Column type=\\'string\\'><![CDATA[defaulted_alias1,TASACAMBIO,TASA_CAMBIO]]></Column></Columns><WhereClause type=\\'string\\'><![CDATA[(TIPOTASA = \\'D\\' AND CODMONEDAFIN = \\'SOL\\' AND CODMONEDA = \\'USD\\')]]></WhereClause></SelectStatement></SQL><EnablePartitionedReads collapsed=\\'1\\' modified=\\'1\\' type=\\'bool\\'><![CDATA[0]]></EnablePartitionedReads><Transaction><IsolationLevel type=\\'int\\'><![CDATA[0]]></IsolationLevel><RecordCount type=\\'int\\'><![CDATA[2000]]></RecordCount><EndOfWave type=\\'int\\'><![CDATA[0]]></EndOfWave></Transaction><Session><ArraySize type=\\'int\\'><![CDATA[2000]]></ArraySize><PrefetchRowCount type=\\'int\\'><![CDATA[1]]></PrefetchRowCount><PrefetchMemorySize type=\\'int\\'><![CDATA[0]]></PrefetchMemorySize><PassLobLocator collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></PassLobLocator><BFILEasBLOB type=\\'bool\\'><![CDATA[0]]></BFILEasBLOB><TreatWarningsAsErrors type=\\'bool\\'><![CDATA[0]]></TreatWarningsAsErrors><TreatFetchTruncateAsError type=\\'bool\\'><![CDATA[1]]></TreatFetchTruncateAsError></Session><BeforeAfter collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></BeforeAfter><ApplicationFailoverControl collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></ApplicationFailoverControl><LimitRows collapsed=\\'1\\' type=\\'bool\\'><![CDATA[0]]></LimitRows></Usage></Properties >'
+-connector '{
+   variant=\\'10\\', 
+   library=ccora10g, 
+   version=1.0, 
+   variantlist=\\'V1;10:"10g":ccora10g;11:"11g":ccora11g\\', 
+   versionlist=\\'1.0,1.0\\', 
+   name=OracleConnector
+}'
+-source 0 '{
+      DSSQLType={TASACAMBIO=3, FECHORACAMBIO=9}, 
+      DSSQLPrecision={TASACAMBIO=22}, 
+      DSSQLScale={TASACAMBIO=6}, 
+      DSSchema=\\'record
+         (
+           TASACAMBIO\\:nullable decimal\\[22\\,6\\]\\;
+           FECHORACAMBIO\\:nullable date\\;
+         )\\'
+}'
+   
+## General options
+[ident('OC_Ora_TASA_CAMBIO'); jobmon_ident('OC_Ora_TASA_CAMBIO')]
+## Outputs
+0> [modify (
+  TASACAMBIO:nullable decimal[22,6]=TASACAMBIO;
+  FECHORACAMBIO:nullable date=FECHORACAMBIO;
+keep
+  TASACAMBIO,FECHORACAMBIO;
+)] 'OC_Ora_TASA_CAMBIO:Lnk_TASA_CAMBIO.v'
+;
+# End of OSH code
+=+=+=+=
+   END DSSCRIPT
+END DSEXECJOB
