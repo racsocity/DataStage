@@ -1,0 +1,15 @@
+Notes mail server information:
+
+Notes mail server name:
+ NALLN562/40/LLN/IBM
+
+Notes mail file path:
+ data0/126/1000511820.nsf
+
+Notes email address:
+ Oscar.Ciudad@ibm.com
+
+Notes user name:
+ Oscar Ciudad/Peru/IBM
+
+---------------------
